@@ -14,6 +14,8 @@
                         </div>
                     @endif
 
+                    Welcome <b>{{ Auth::user()->firstname.' '.Auth::user()->lastname }}</b>
+                    <br/>
                     You are logged in!
                 </div>
             </div>

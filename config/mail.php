@@ -57,7 +57,23 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'name' => env('MAIL_FROM_NAME', 'Non Reply'),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Global "Reply To" Address
+    |--------------------------------------------------------------------------
+    |
+    | You may wish for all e-mails reply to be addressed to the same email.
+    | Here, you may specify a name and address that is used globally as a reply to
+    | email for your application.
+    |
+    */
+
+    'reply_to' => [
+        'address' => env('MAIL_REPLY_TO_ADDRESS', 'cheapfood2019@gmail.com'),
+        'name' => env('MAIL_REPLY_TO_NAME', 'Cheap Food'),
     ],
 
     /*

@@ -39,12 +39,12 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-//    public function authenticated()
-//    {
-//        $user = Auth::user();
-//        $user->token_2fa_expiry = Carbon::now();
-//        $user->save();
-//
-//        return redirect('/home');
-//    }
+    public function authenticated()
+    {
+        $user = Auth::user();
+        $user->token_2fa_expiry = Carbon::now();
+        $user->save();
+
+        return redirect('/home');
+    }
 }

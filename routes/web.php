@@ -11,9 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+/*
+ * pages routes
+ */
+Route::get('/', 'PagesController@index')->name('home.index');
 
 Auth::routes(['verify' => true]);
 

@@ -2,8 +2,257 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40835273-a2ad-4ac6-9c74-488357c9e712" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/animate.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/icons.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/plugins.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/red-color.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/responsive.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/yellow-color.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Flaticon.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Flaticon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Flaticon.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Flaticon.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Flaticond41d.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont3e6e.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont3e6e.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont3e6e.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont3e6e.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont3e6e.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfontd41d.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular-2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular-3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular-4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular-5.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regulard41d.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ajax-loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/award.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/bank-img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/card-img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/close-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/error-bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/error-bg2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/icon1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/icon2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/icon3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/icon4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/icon5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/icon6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/icon7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/locat-bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/logo2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/menu-strip.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/newsletter-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/parallax1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/parallax2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/parallax3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/parallax4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/pattern.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/pay-mthd-img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/payment-popup-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/price-bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/about-img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/app-download-btn1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/app-download-btn2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/app-mockup.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/article1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/article2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/article3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/article4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/article5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/article6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/author-img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/blog-detial-gallery-img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/blog-detial-gallery-img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/blog-detial-gallery-img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/blog-detial-img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/blog-detial-img2-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/blog-detial-img2-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/blog-detial-img2-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/blog-detial-img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/blog-detial-img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/booking-frombg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/chef.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/clouds.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/clouds2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/comment1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/comment2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/dish-caro1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/dish-img1-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/dish-img1-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/dish-img1-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/dish-img1-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/dish-img2-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/dish-img2-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/dish-img2-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/dish-img2-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/fact-icon1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/fact-icon2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/fact-icon3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/fact-icon4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/featured-post-img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/featured-restaurant-food-img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/featured-restaurant-food-img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/featured-restaurant-food-img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/featured-restaurant-food-img4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/featured-restaurant-food-img5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/featured-restaurant-food-img6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/featured-restaurant-food-thumb-img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/featured-restaurant-food-thumb-img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/featured-restaurant-food-thumb-img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/featured-restaurant-food-thumb-img4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/featured-restaurant-food-thumb-img5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/featured-restaurant-food-thumb-img6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/featured-restaurant-gallery1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/featured-restaurant-gallery2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/featured-restaurant-img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/featured-restaurant-img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/featured-restaurant-img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/featured-restaurant-img4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/featured-restaurant-img5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/featured-restaurant-img6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/food1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/food2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/food3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/gallery-detail-img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/gallery-inner-img1-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/gallery-inner-img1-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/gallery-inner-img1-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/gallery1-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/gallery1-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/gallery1-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/gallery1-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/gallery1-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/gallery1-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/gallery1-7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/gallery1-8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/gallery1-9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/half-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/mockup1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/mockup2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/most-popular-img1-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/most-popular-img1-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/most-popular-img1-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/most-popular-img1-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/most-popular-img1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/most-popular-img2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/most-popular-img3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/most-popular-img4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/most-popular-img5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/most-popular-img6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/most-popular-img7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/most-popular-img8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/news-img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/news-img2-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/news-img2-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/news-img2-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/news-img2-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/news-img2-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/news-img2-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/news-img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/news-img3-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/news-img3-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/news-img3-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/news-img3-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/news-img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/news-img4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/news-img5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/news-img6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/news-img7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/news-img8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/news-img9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/order-img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/order-img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/order-img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/order-img4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/popular-dish-img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/popular-dish-img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/popular-dish-img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/popular-post-img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/popular-post-img2-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/popular-post-img2-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/popular-post-img2-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/popular-post-img2-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/popular-post-img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/popular-post-img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/popular-post-img4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/profile-img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/profile-thumb1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/profile-thumb2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/profile-thumb3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/profile-thumb4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/profile-thumb5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/restaurant-detail-big-img1-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/restaurant-detail-big-img1-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/restaurant-detail-big-img1-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/restaurant-detail-big-img1-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/restaurant-detail-small-img1-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/restaurant-detail-small-img1-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/restaurant-detail-small-img1-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/restaurant-detail-small-img1-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/restaurant-gallery-img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/restaurant-gallery-img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/restaurant-gallery-img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/restaurant-gallery-img4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/restaurant-gallery-img5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/restaurant-logo1-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/restaurant-logo1-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/restaurant-logo1-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/restaurant-logo1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/restaurant-logo2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/restaurant-logo3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/restaurant-logo4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/restaurant-logo5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/restaurant-mockup1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/resto-service1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/resto-service2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/resto-service3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/resto-service4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/resto-service5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/resto-service6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/review-img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/review-img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/review-img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/reviewr-img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/reviewr-img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/reviewr-img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/round-pic1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/round-pic2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/round-pic3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/round-pic4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/setp-img1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/setp-img2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/setp-img3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/thanks-message-mockup.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/top-restaurant1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/top-restaurant2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/top-restaurant3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/top-restaurant4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/top-restaurant5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/top-restaurant6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/top-restaurant7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/user-avatar.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/resource/welcome-note-img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/sign.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/tick-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/topbg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/google-map-int.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/google-map-int2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/plugins.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/partials/header-resp.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/partials/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,11 +266,74 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="22" column="87" lean-forward="true" selection-start-line="22" selection-start-column="87" selection-end-line="22" selection-end-column="87" />
+            <state relative-caret-position="255">
+              <caret line="24" column="58" selection-start-line="24" selection-start-column="58" selection-end-line="24" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PagesController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="703" column="13" selection-start-line="703" selection-start-column="6" selection-end-line="703" selection-end-column="13" />
+              <folding>
+                <element signature="e#181#236#0#HTML" expanded="true" />
+                <element signature="e#14310#14366#0#HTML" expanded="true" />
+                <element signature="e#22439#22498#0#HTML" expanded="true" />
+                <element signature="e#33561#33617#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="49" column="25" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/partials/header.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="485">
+              <caret line="111" column="24" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/partials/header-resp.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/partials/footer.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="434">
+              <caret line="150" column="6" selection-start-line="150" selection-start-column="6" selection-end-line="150" selection-end-column="6" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -53,6 +365,12 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/partials/header.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/partials/header.responsible.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/partials/footer.blade.php" />
       </list>
     </option>
   </component>
@@ -196,7 +514,7 @@
               <item name="cheap-food" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="emails" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -210,6 +528,13 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\test\cheap-food\public" />
+      <recent name="C:\xampp\htdocs\test\cheap-food\public\js" />
+      <recent name="C:\xampp\htdocs\test\cheap-food\public\css" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -241,12 +566,12 @@
       <updated>1568646375685</updated>
       <workItem from="1568646377659" duration="6199000" />
       <workItem from="1568720408950" duration="1901000" />
-      <workItem from="1568784409361" duration="13300000" />
+      <workItem from="1568784409361" duration="17817000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21400000" />
+    <option name="totallyTimeSpent" value="25917000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="78" y="56" width="1180" height="648" extended-state="0" />
@@ -475,10 +800,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="49" column="25" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/partials/header-resp.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="22" column="87" lean-forward="true" selection-start-line="22" selection-start-column="87" selection-end-line="22" selection-end-column="87" />
+        <state relative-caret-position="255">
+          <caret line="24" column="58" selection-start-line="24" selection-start-column="58" selection-end-line="24" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/partials/header.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="111" column="24" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PagesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="703" column="13" selection-start-line="703" selection-start-column="6" selection-end-line="703" selection-end-column="13" />
+          <folding>
+            <element signature="e#181#236#0#HTML" expanded="true" />
+            <element signature="e#14310#14366#0#HTML" expanded="true" />
+            <element signature="e#22439#22498#0#HTML" expanded="true" />
+            <element signature="e#33561#33617#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/partials/footer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="150" column="6" selection-start-line="150" selection-start-column="6" selection-end-line="150" selection-end-column="6" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

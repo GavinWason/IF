@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a4cc6319ea96cffd1dfbde1973b79986",
+    "content-hash": "3132e32adc989853430d9f5ac02576ec",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1414,6 +1414,463 @@
                 "uuid"
             ],
             "time": "2018-07-19T23:38:55+00:00"
+        },
+        {
+            "name": "rinvex/laravel-bookings",
+            "version": "v2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rinvex/laravel-bookings.git",
+                "reference": "e3cc501849e224f62a587445cd5d0e285f3a90d0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rinvex/laravel-bookings/zipball/e3cc501849e224f62a587445cd5d0e285f3a90d0",
+                "reference": "e3cc501849e224f62a587445cd5d0e285f3a90d0",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "~5.8.0",
+                "illuminate/database": "~5.8.0",
+                "illuminate/support": "~5.8.0",
+                "php": "^7.2.0",
+                "rinvex/laravel-cacheable": "^2.1.0",
+                "rinvex/laravel-support": "^2.1.0",
+                "spatie/eloquent-sortable": "^3.6.0",
+                "spatie/laravel-schemaless-attributes": "^1.4.0",
+                "spatie/laravel-sluggable": "^2.1.0",
+                "spatie/laravel-translatable": "^4.1.0",
+                "watson/validating": "^3.2.0"
+            },
+            "require-dev": {
+                "codedungeon/phpunit-result-printer": "^0.26.0",
+                "illuminate/container": "~5.8.0",
+                "phpunit/phpunit": "^8.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Rinvex\\Bookings\\Providers\\BookingsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "database"
+                ],
+                "psr-4": {
+                    "Rinvex\\Bookings\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rinvex LLC",
+                    "email": "help@rinvex.com",
+                    "homepage": "https://rinvex.com"
+                },
+                {
+                    "name": "Abdelrahman Omran",
+                    "email": "me@omranic.com",
+                    "homepage": "https://omranic.com",
+                    "role": "Project Lead"
+                },
+                {
+                    "name": "The Generous Laravel Community",
+                    "homepage": "https://github.com/rinvex/laravel-bookings/contributors"
+                }
+            ],
+            "description": "Rinvex Bookings is a generic resource booking system for Laravel, with the required tools to run your SAAS like services efficiently. It has a simple architecture, with powerful underlying to afford solid platform for your business.",
+            "homepage": "https://rinvex.com",
+            "keywords": [
+                "booking",
+                "cost",
+                "database",
+                "laravel",
+                "price",
+                "rates",
+                "resource",
+                "rinvex",
+                "schedules",
+                "usage"
+            ],
+            "time": "2019-06-03T14:46:54+00:00"
+        },
+        {
+            "name": "rinvex/laravel-cacheable",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rinvex/laravel-cacheable.git",
+                "reference": "b1f9401507d31f19fe8712bd4215744a9ec8c024"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rinvex/laravel-cacheable/zipball/b1f9401507d31f19fe8712bd4215744a9ec8c024",
+                "reference": "b1f9401507d31f19fe8712bd4215744a9ec8c024",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/cache": "~5.8.0",
+                "illuminate/contracts": "~5.8.0",
+                "illuminate/database": "~5.8.0",
+                "php": "^7.2.0"
+            },
+            "require-dev": {
+                "codedungeon/phpunit-result-printer": "^0.26.0",
+                "illuminate/container": "~5.8.0",
+                "phpunit/phpunit": "^8.1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Rinvex\\Cacheable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rinvex LLC",
+                    "email": "help@rinvex.com",
+                    "homepage": "https://rinvex.com"
+                },
+                {
+                    "name": "Abdelrahman Omran",
+                    "email": "me@omranic.com",
+                    "homepage": "https://omranic.com",
+                    "role": "Project Lead"
+                },
+                {
+                    "name": "The Generous Laravel Community",
+                    "homepage": "https://github.com/rinvex/laravel-cacheable/contributors"
+                }
+            ],
+            "description": "Rinvex Cacheable is a granular, intuitive, and fluent caching system for eloquent models. Simple, but yet powerful, plug-n-play with no hassle.",
+            "homepage": "https://rinvex.com",
+            "keywords": [
+                "cache",
+                "cacheable",
+                "eloquent",
+                "fluent",
+                "granular",
+                "intuitive",
+                "laravel",
+                "model",
+                "query",
+                "rinvex",
+                "trait"
+            ],
+            "time": "2019-06-02T04:45:32+00:00"
+        },
+        {
+            "name": "rinvex/laravel-support",
+            "version": "v2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rinvex/laravel-support.git",
+                "reference": "82eeee6fc360c655e66273c12def547742f98f2e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rinvex/laravel-support/zipball/82eeee6fc360c655e66273c12def547742f98f2e",
+                "reference": "82eeee6fc360c655e66273c12def547742f98f2e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/auth": "~5.8.0",
+                "illuminate/bus": "~5.8.0",
+                "illuminate/contracts": "~5.8.0",
+                "illuminate/http": "~5.8.0",
+                "illuminate/routing": "~5.8.0",
+                "illuminate/support": "~5.8.0",
+                "illuminate/validation": "~5.8.0",
+                "php": "^7.2.0",
+                "spatie/laravel-schemaless-attributes": "^1.4.0",
+                "watson/validating": "^3.2.0"
+            },
+            "require-dev": {
+                "codedungeon/phpunit-result-printer": "^0.26.0",
+                "phpunit/phpunit": "^8.1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/Support/helpers.php"
+                ],
+                "psr-4": {
+                    "Rinvex\\Support\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rinvex LLC",
+                    "email": "help@rinvex.com",
+                    "homepage": "https://rinvex.com"
+                },
+                {
+                    "name": "Abdelrahman Omran",
+                    "email": "me@omranic.com",
+                    "homepage": "https://omranic.com",
+                    "role": "Project Lead"
+                },
+                {
+                    "name": "The Generous Laravel Community",
+                    "homepage": "https://github.com/rinvex/laravel-support/contributors"
+                }
+            ],
+            "description": "Rinvex common support helpers, contracts, and traits required by various Rinvex packages. Validator functionality, and basic controller included out-of-the-box.",
+            "homepage": "https://rinvex.com/marketplace/rinvex-support/",
+            "keywords": [
+                "contract",
+                "helper",
+                "laravel",
+                "mimetype",
+                "rinvex",
+                "support",
+                "timezones",
+                "trait",
+                "validator"
+            ],
+            "time": "2019-06-03T14:47:46+00:00"
+        },
+        {
+            "name": "spatie/eloquent-sortable",
+            "version": "3.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/eloquent-sortable.git",
+                "reference": "0eb944f90dd88756f93d916bf387e232190a7acf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/eloquent-sortable/zipball/0eb944f90dd88756f93d916bf387e232190a7acf",
+                "reference": "0eb944f90dd88756f93d916bf387e232190a7acf",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.8.0|^6.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.8.0|^4.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\EloquentSortable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be"
+                }
+            ],
+            "description": "Sortable behaviour for eloquent models",
+            "homepage": "https://github.com/spatie/eloquent-sortable",
+            "keywords": [
+                "behaviour",
+                "eloquent",
+                "laravel",
+                "model",
+                "sort",
+                "sortable"
+            ],
+            "time": "2019-09-04T10:53:31+00:00"
+        },
+        {
+            "name": "spatie/laravel-schemaless-attributes",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-schemaless-attributes.git",
+                "reference": "7bd66feab0bc5289c089c8c53201a929781797dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-schemaless-attributes/zipball/7bd66feab0bc5289c089c8c53201a929781797dc",
+                "reference": "7bd66feab0bc5289c089c8c53201a929781797dc",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^5.6|^6.0",
+                "illuminate/support": "^5.6|^6.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "larapack/dd": "^1.0",
+                "orchestra/testbench": "^3.6|^4.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\SchemalessAttributes\\SchemalessAttributesServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\SchemalessAttributes\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Add schemaless attributes to Eloquent models",
+            "homepage": "https://github.com/spatie/laravel-schemaless-attributes",
+            "keywords": [
+                "laravel-schemaless-attributes",
+                "spatie"
+            ],
+            "time": "2019-09-04T07:08:44+00:00"
+        },
+        {
+            "name": "spatie/laravel-sluggable",
+            "version": "2.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-sluggable.git",
+                "reference": "a51839b77a9f0fc8246b690b92b9339de464dc8a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-sluggable/zipball/a51839b77a9f0fc8246b690b92b9339de464dc8a",
+                "reference": "a51839b77a9f0fc8246b690b92b9339de464dc8a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "~5.6.0|~5.7.0|~5.8.0|^6.0",
+                "illuminate/support": "~5.6.0|~5.7.0|~5.8.0|^6.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.6.0|~3.7.0|~3.8.0|^4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Sluggable\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Generate slugs when saving Eloquent models",
+            "homepage": "https://github.com/spatie/laravel-sluggable",
+            "keywords": [
+                "laravel-sluggable",
+                "spatie"
+            ],
+            "time": "2019-09-16T09:37:47+00:00"
+        },
+        {
+            "name": "spatie/laravel-translatable",
+            "version": "4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-translatable.git",
+                "reference": "734bd735dc41cf745c3c6f3fb32b8364c918fe34"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-translatable/zipball/734bd735dc41cf745c3c6f3fb32b8364c918fe34",
+                "reference": "734bd735dc41cf745c3c6f3fb32b8364c918fe34",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "~5.8.0|^6.0",
+                "illuminate/support": "~5.8.0|^6.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "orchestra/testbench": "~3.8.0|^4.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Translatable\\TranslatableServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Translatable\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Mohamed Said",
+                    "email": "theMohamedSaid@gmail.com",
+                    "role": "Original idea"
+                }
+            ],
+            "description": "A trait to make an Eloquent model hold translations",
+            "homepage": "https://github.com/spatie/laravel-translatable",
+            "keywords": [
+                "eloquent",
+                "i8n",
+                "laravel-translatable",
+                "model",
+                "multilingual",
+                "spatie",
+                "translate"
+            ],
+            "time": "2019-09-04T07:42:04+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2940,6 +3397,56 @@
                 "environment"
             ],
             "time": "2019-09-10T21:37:39+00:00"
+        },
+        {
+            "name": "watson/validating",
+            "version": "3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dwightwatson/validating.git",
+                "reference": "288eb177e9b3721e8e1f2dad81d4f17928a3c916"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dwightwatson/validating/zipball/288eb177e9b3721e8e1f2dad81d4f17928a3c916",
+                "reference": "288eb177e9b3721e8e1f2dad81d4f17928a3c916",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": ">= 5.4.0",
+                "illuminate/database": ">= 5.4.0",
+                "illuminate/events": ">= 5.4.0",
+                "illuminate/support": ">= 5.4.0",
+                "illuminate/validation": ">= 5.4.0",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "mockery/mockery": "~1.0",
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Watson\\Validating\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dwight Watson",
+                    "email": "dwight@studiousapp.com"
+                }
+            ],
+            "description": "Eloquent model validating trait.",
+            "keywords": [
+                "eloquent",
+                "laravel",
+                "validation"
+            ],
+            "time": "2019-09-05T20:06:01+00:00"
         }
     ],
     "packages-dev": [

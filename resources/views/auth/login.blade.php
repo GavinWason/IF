@@ -1,6 +1,50 @@
 @extends('layouts.app')
 
 @section('content')
+    <section>
+        <div class="block">
+            <div class="fixed-bg" style="background-image: url({{ asset('images/topbg.jpg') }});"></div>
+
+            <div class="container">
+                <div class="login-register-wrapper">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6 col-sm-12 col-lg-6">
+                            <div class="sign-popup-wrapper brd-rd5">
+                                <div class="sign-popup-inner brd-rd5">
+                                    <div class="sign-popup-title text-center">
+                                        <h4 itemprop="headline">SIGN IN</h4>
+                                    </div>
+                                    <span class="popup-seprator text-center"><i class="brd-rd50"><i class="fa fa-heart"></i></i></span>
+                                    <form class="sign-form">
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                                                <input class="brd-rd3" type="text" placeholder="Username or Email">
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                                                <input class="brd-rd3" type="password" placeholder="Password">
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                                                <button class="red-bg brd-rd3" type="submit">SIGN IN</button>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                                                <a class="sign-btn" href="#" title="" itemprop="url">Not a member? Sign up</a>
+                                                <a class="recover-btn" href="#" title="" itemprop="url">Recover my password</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+@endsection
+
+
+@section('old-content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

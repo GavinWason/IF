@@ -35,27 +35,27 @@ $(document).ready(function(){
     return false;
   });
 
-  //===== Login Popup Script =====//
-  $('.log-popup-btn').on('click',function(){
-    $('html').addClass('log-popup-active');
-    return false;
-  });
-
-  $('.log-close-btn').on('click',function(){
-    $('html').removeClass('log-popup-active');
-    return false;
-  });
-
-  //===== Sign Up Popup Script =====//
-  $('.sign-popup-btn').on('click',function(){
-    $('html').addClass('sign-popup-active');
-    return false;
-  });
-
-  $('.sign-close-btn').on('click',function(){
-    $('html').removeClass('sign-popup-active');
-    return false;
-  });
+  // //===== Login Popup Script =====//
+  // $('.log-popup-btn').on('click',function(){
+  //   $('html').addClass('log-popup-active');
+  //   return false;
+  // });
+  //
+  // $('.log-close-btn').on('click',function(){
+  //   $('html').removeClass('log-popup-active');
+  //   return false;
+  // });
+  //
+  // //===== Sign Up Popup Script =====//
+  // $('.sign-popup-btn').on('click',function(){
+  //   $('html').addClass('sign-popup-active');
+  //   return false;
+  // });
+  //
+  // $('.sign-close-btn').on('click',function(){
+  //   $('html').removeClass('sign-popup-active');
+  //   return false;
+  // });
 
   //===== Newsletter Popup Script =====//
   $('a.close-btn').on('click',function(){

@@ -7,7 +7,7 @@
                         <div class="row">
                             <div class="col-md-3 col-sm-6 col-lg-3">
                                 <div class="widget about_widget wow fadeIn" data-wow-delay="0.1s">
-                                    <div class="logo"><h1 itemprop="headline"><a href="#" title="Home" itemprop="url"><img src="assets/images/logo.png" alt="logo.png" itemprop="image"></a></h1></div>
+                                    <div class="logo"><h1 itemprop="headline"><a href="#" title="Home" itemprop="url"><img src="{{ asset('images/logo.png') }}" alt="logo" itemprop="image"></a></h1></div>
                                     <p itemprop="description">Food Ordering is a Premium HTML Template. Best choice for your online store. Let purchase it to enjoy now</p>
                                     <div class="social2">
                                         <a class="brd-rd50" href="#" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook"></i></a>
@@ -60,22 +60,9 @@
 </footer>
 <div class="bottom-bar dark-bg text-center">
     <div class="container">
-        <p itemprop="description"><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
+        <p itemprop="description"> Designed with  <a target="_blank" href="https://www.templateshub.net"> <i class="fa fa-heart"></i></a></p>
     </div>
 </div><!-- Bottom Bar -->
-
-<div class="newsletter-popup-wrapper text-center">
-    <div class="newsletter-popup-inner" style="background-image: url(assets/images/newsletter-bg.jpg);">
-        <a class="close-btn brd-rd50" href="#" title="Close Button" itemprop="url"><i class="fa fa-close"></i></a>
-        <h3 itemprop="headline"><i class="fa fa-envelope-open red-clr"></i> SIGN UP FOR RECENT UPDATES</h3>
-        <p itemprop="description">Join our Subscribers list to get the latest news, updates and special offers delivered directly in your inbox.</p>
-        <form class="newsletter-frm brd-rd30">
-            <input class="brd-rd30" type="email" placeholder="ENTER YOUR EMAIL">
-            <button class="brd-rd30 red-bg" type="submit">SUBSCRIBE</button>
-        </form>
-        <span class="red-clr"><i class="fa fa-check"></i> Thanks, your address has been added.</span>
-    </div>
-</div><!-- Newsletter Popup Wrapper -->
 
 <div class="log-popup text-center">
     <div class="sign-popup-wrapper brd-rd5">

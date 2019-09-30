@@ -22,7 +22,7 @@ Route::get('/', 'PagesController@index')->name('home.index');
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/account', 'AccountController@index')->name('account.index');
 
 Route::get('/verify/2fa', 'Auth\TwoFactorController@index')->name('2fa.index');
 Route::post('/verify/2fa', 'Auth\TwoFactorController@verifyToken')->name('2fa.verify');

@@ -7161,7 +7161,9 @@ a.thanks-close:focus {color: #333;}
 .about-feat.text-center > img{width: 100%;}
 
 
-
+.yellow-bg{
+  background: #ffbe00;
+}
 
 
 

@@ -13,7 +13,6 @@
         </div>
     </div>
 
-
     <section>
         <div class="block less-spacing gray-bg top-padd30">
             <div class="container">
@@ -27,67 +26,87 @@
 
                                     <div class="col-md-8 col-sm-12 col-lg-8">
                                         <div class="tab-content">
-                                            <div class="tab-pane fade in active" id="dashboard">
-                                                <div class="dashboard-wrapper brd-rd5">
-                                                    <div class="welcome-note yellow-bg brd-rd5">
-                                                        <h4 itemprop="headline">WELCOME TO YOUR ACCOUNT DASHBOARD</h4>
-                                                        <p itemprop="description">From your account dashbaord you can manage your profile details, view your orders,
-                                                            and further if you operate a restaurant on the platform; manage activities related to the restaurant.
-                                                            Would it come that you would like to have your restaurant or charity organization listed on the site, register it
-                                                            through the application form below.</p>
-                                                        <img src="{{ asset('images/resource/welcome-note-img.png') }}" alt="welcome-note-img.png" itemprop="image">
-                                                        <a class="remove-noti" href="#" title="" itemprop="url"><img src="{{ asset('images/close-icon.png') }}" alt="close-icon.png" itemprop="image"></a>
-                                                    </div>
+                                            <div class="tab-pane fade in active" id="account-settings">
+                                                <div class="tabs-wrp account-settings brd-rd5">
+                                                    <h4 itemprop="headline">PROFILE SETTINGS</h4>
+                                                    <div class="account-settings-inner">
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-sm-4 col-lg-4">
+                                                                <div class="profile-info text-center">
+                                                                    <div class="profile-thumb brd-rd50">
+                                                                        <img id="profile-display" src="{{ asset('images/resource/profile-thumb1.jpg') }}" alt="profile-img1.jpg" itemprop="image">
+                                                                    </div>
+                                                                    <a class="red-clr change-password" href="#" title="" itemprop="url">Change Password</a>
+                                                                    <div class="profile-img-upload-btn">
+                                                                        <label class="fileContainer brd-rd5 yellow-bg">
+                                                                            UPLOAD PICTURE
+                                                                            <input id="profile-upload" type="file"/>
+                                                                        </label>
+                                                                    </div>
+                                                                    <p itemprop="description">Upload a profile picture</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8 col-sm-8 col-lg-8">
+                                                                <div class="profile-info-form-wrap">
+                                                                    <form class="profile-info-form">
+                                                                        <div class="row mrg20">
+                                                                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                                                                <label>Complete Name <sup>*</sup></label>
+                                                                                <input class="brd-rd3" type="text" placeholder="Enter Your Name">
+                                                                            </div>
+                                                                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                                                                <label>Email Address <sup>*</sup></label>
+                                                                                <input class="brd-rd3" type="email" placeholder="Enter Your Email Address">
+                                                                            </div>
+                                                                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                                                                <label>Phone No <sup>*</sup></label>
+                                                                                <input class="brd-rd3" type="text" placeholder="Enter Your Phone No">
+                                                                            </div>
+                                                                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                                                                <label>Country <sup>*</sup></label>
+                                                                                <div class="select-wrp">
+                                                                                    <select>
+                                                                                        <option>Pakistan</option>
+                                                                                        <option>India</option>
+                                                                                        <option>USA</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                                                                <label>State <sup>*</sup></label>
+                                                                                <input class="brd-rd3" type="text">
+                                                                            </div>
+                                                                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                                                                <label>City <sup>*</sup></label>
+                                                                                <div class="select-wrp">
+                                                                                    <select>
+                                                                                        <option>Karachi</option>
+                                                                                        <option>Multan</option>
+                                                                                        <option>Lahore</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                                                                <label>Latitude <sup>*</sup></label>
+                                                                                <input class="brd-rd3" type="text">
+                                                                            </div>
+                                                                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                                                                <label>Longitude <sup>*</sup></label>
+                                                                                <input class="brd-rd3" type="text">
+                                                                            </div>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                                                <div class="loc-map2">
+                                                                    <div class="loc-map brd-rd3" id="loc-map"></div>
 
-                                                    <div class="dashboard-title">
-                                                        <h4 itemprop="headline">QUICK VIEW</h4>
-                                                        <span>Define <a class="red-clr" href="#" title="" itemprop="url">Search criteria</a> to search for specific</span>
-                                                    </div>
-
-                                                    <div class="restaurants-list">
-                                                        <div class="featured-restaurant-box style3 brd-rd5 wow fadeInUp" data-wow-delay="0.2s">
-                                                            <div class="featured-restaurant-thumb"><a href="#" title="" itemprop="url"><img src="{{ asset('images/resource/restaurant-logo1-1.png') }}" alt="restaurant-logo1-1.png" itemprop="image"></a></div>
-                                                            <div class="featured-restaurant-info">
-                                                                <span class="red-clr">5th Avenue New York 68</span>
-                                                                <h4 itemprop="headline"><a href="#" title="" itemprop="url">Domino's Pizza</a></h4>
-                                                                <ul class="post-meta">
-                                                                    <li><i class="fa fa-check-circle-o"></i> Min order $50</li>
-                                                                    <li><i class="flaticon-transport"></i> 30min</li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="view-menu-liks">
-                                                                <span class="red-bg brd-rd4 post-likes"><i class="fa fa-heart-o"></i> 12</span>
-                                                                <a class="brd-rd3" href="#" title="" itemprop="url">View Menu</a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="featured-restaurant-box style3 brd-rd5 wow fadeInUp" data-wow-delay="0.3s">
-                                                            <div class="featured-restaurant-thumb"><a href="#" title="" itemprop="url"><img src="{{ asset('images/resource/restaurant-logo1-2.png') }}" alt="restaurant-logo1-2.png" itemprop="image"></a></div>
-                                                            <div class="featured-restaurant-info">
-                                                                <span class="red-clr">5th Avenue New York 68</span>
-                                                                <h4 itemprop="headline"><a href="#" title="" itemprop="url">Pizza Hut</a></h4>
-                                                                <ul class="post-meta">
-                                                                    <li><i class="fa fa-check-circle-o"></i> Min order $40</li>
-                                                                    <li><i class="flaticon-transport"></i> 30min</li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="view-menu-liks">
-                                                                <span class="red-bg brd-rd4 post-likes"><i class="fa fa-heart-o"></i> 20</span>
-                                                                <a class="brd-rd3" href="#" title="" itemprop="url">View Menu</a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="featured-restaurant-box style3 brd-rd5 wow fadeInUp" data-wow-delay="0.4s">
-                                                            <div class="featured-restaurant-thumb"><a href="#" title="" itemprop="url"><img src="{{ asset('images/resource/restaurant-logo1-1.png') }}" alt="restaurant-logo1-1.png" itemprop="image"></a></div>
-                                                            <div class="featured-restaurant-info">
-                                                                <span class="red-clr">5th Avenue New York 68</span>
-                                                                <h4 itemprop="headline"><a href="#" title="" itemprop="url">Burger King</a></h4>
-                                                                <ul class="post-meta">
-                                                                    <li><i class="fa fa-check-circle-o"></i> Min order $100</li>
-                                                                    <li><i class="flaticon-transport"></i> 30min</li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="view-menu-liks">
-                                                                <span class="red-bg brd-rd4 post-likes"><i class="fa fa-heart-o"></i> 15</span>
-                                                                <a class="brd-rd3" href="#" title="" itemprop="url">View Menu</a>
+                                                                    <div class="loc-srch">
+                                                                        <input class="brd-rd3" type="text" placeholder="Type Your Address">
+                                                                        <button class="brd-rd3 red-bg" type="submit">Search Now</button>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>

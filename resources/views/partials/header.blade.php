@@ -9,7 +9,14 @@
                 </div>
             </div>
             <div class="topbar-register">
-                <a class="log-popup-btn" href="{{ route('login') }}" title="Login" itemprop="url">LOGIN</a> / <a class="sign-popup-btn" href="{{ route('register') }}" title="Register" itemprop="url">REGISTER</a>
+                @guest
+                <a class="log-popup-btn" href="{{ route('login') }}" title="Login" itemprop="url">LOGIN</a> /
+                   @if (Route::has('register'))
+                        <a class="sign-popup-btn" href="{{ route('register') }}" title="Register" itemprop="url">REGISTER</a>
+                    @endif
+                @else
+                    <a class="log-popup-btn" href="{{ route('account.index') }}" title="Account" itemprop="url">MY ACCOUNT</a>
+                @endguest
             </div>
         </div>
     </div><!-- Topbar -->

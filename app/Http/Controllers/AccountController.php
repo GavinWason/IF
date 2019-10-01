@@ -7,13 +7,35 @@ use Illuminate\Http\Request;
 class AccountController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
         return view('account.dashboard');
+    }
+
+    /**
+     * @return \Illuminate\Http\Response
+     */
+    public function profile()
+    {
+        return view('account.profile');
+    }
+
+    /**
+     * @return \Illuminate\Http\Response
+     */
+    public function corporate()
+    {
+        return view('account.corporate');
+    }
+
+    /**
+     * @return \Illuminate\Http\Response
+     */
+    public function corporateApplication()
+    {
+        return view('account.application.restaurant');
     }
 
     /**

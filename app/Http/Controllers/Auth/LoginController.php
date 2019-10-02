@@ -27,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/account';
 
     /**
      * Create a new controller instance.
@@ -45,6 +45,6 @@ class LoginController extends Controller
         $user->token_2fa_expiry = Carbon::now();
         $user->save();
 
-        return redirect('/home');
+        return redirect('/account');
     }
 }

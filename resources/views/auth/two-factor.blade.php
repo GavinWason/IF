@@ -1,46 +1,61 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Verify Identity') }}</div>
 
-                    <div class="card-body">
+    <section>
+        <div class="block">
+            <div class="fixed-bg" style="background-image: url({{ asset('images/topbg.jpg') }});"></div>
 
-                        <div class="alert alert-danger" role="alert">
-                            Enter the verification code you received on your mobile
-                        </div>
-
-                        <form method="POST" action="{{ route('2fa.verify') }}" autocomplete="off">
-                            @csrf
-
-                            <div class="form-group row">
-                                <label for="2fa" class="col-md-4 col-form-label text-md-right">{{ __('Verification Code') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="2fa" type="text" class="form-control @error('2fa') is-invalid @enderror" name="2fa" value="{{ old('code') }}" required autofocus>
-
-                                    @error('2fa')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row mb-0">
-                                <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Verify') }}
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+            <div class="container">
+                <div class="row justify-content-center mb-5" style="margin-top: -5%">
+                    <h1 itemprop="headline"><a href="{{ url('/') }}" title="Home" itemprop="url">
+                            <img src="{{ asset('images/logo.png') }}" alt="logo.png" itemprop="image"></a>
+                    </h1>
                 </div>
             </div>
+
+            <div class="container">
+                <div class="login-register-wrapper">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 col-sm-12 col-lg-8">
+                            <div class="sign-popup-wrapper brd-rd5">
+                                <div class="sign-popup-inner brd-rd5">
+                                    <div class="sign-popup-title text-center mb-0">
+                                        <h5 itemprop="headline">Verify IDENTITY</h5>
+                                        <div class="alert alert-info mt-5" role="alert">
+                                            Enter the verification code you received on your Email
+                                        </div>
+                                    </div>
+                                    <span class="popup-seprator text-center"><i class="brd-rd50"><i class="fa fa-heart"></i></i></span>
+
+                                    <form class="sign-form" method="POST" action="{{ route('2fa.verify') }}" autocomplete="off">
+                                    @csrf
+
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                                                <label>Verification Code <sup>*</sup></label>
+                                                <input id="2fa" type="text" class="brd-rd3 @error('2fa') is-invalid @enderror" name="2fa" value="{{ old('code') }}" placeholder="Enter verification code..." required autofocus >
+
+                                                @error('2fa')
+                                                <span role="alert">
+                                                    {{ $message }}
+                                                </span>
+                                                @enderror
+                                            </div>
+
+                                            <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                                                <button class="red-bg brd-rd3" type="submit">VERIFY IDENTITY</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
-    </div>
+    </section>
 @endsection

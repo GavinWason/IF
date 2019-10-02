@@ -38,7 +38,7 @@ class TwoFactorController extends Controller
         if($request->input('2fa') == $user->token_2fa){
             $user->token_2fa_expiry = Carbon::now()->addMinutes(config('session.lifetime'));
             $user->save();
-            return redirect('/home');
+            return redirect('/account');
         } else {
             return back()->withInput();
         }

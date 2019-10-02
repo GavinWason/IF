@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Restaurant;
 use Illuminate\Http\Request;
 
 class AccountController extends Controller
@@ -27,36 +28,80 @@ class AccountController extends Controller
      */
     public function corporate()
     {
+        $restaurant = Restaurant::all();
         return view('account.corporate');
     }
 
     /**
      * @return \Illuminate\Http\Response
      */
-    public function corporateApplication()
+    public function corporateApplication($id)
     {
-        return view('account.application.restaurant');
+        $restaurant = Restaurant::find($id);
+        return view('account.application.restaurant')
+            ->with('restaurant', $restaurant);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request)
+    public function restaurantStore(Request $request)
     {
-        //
+        $this->validate($request, [
+            'restaurant_name' => 'required|string|max:255',
+            'restaurant_phone' => 'required',
+            'restaurant_email' => 'required|email',
+            'restaurant_website' => 'required',
+            'restaurant_address' => 'required'
+        ]);
+
+        $restaurant = new Restaurant;
+
+        $restaurant->name = $request->restaurant_name;
+        $restaurant->user_id = auth()->user() ? auth()->user()->id : null;
+        $restaurant->address = $request->restaurant_address;
+        $restaurant->phone = $request->restaurant_phone;
+        $restaurant->website = $request->restaurant_website;
+        $restaurant->email = $request->restaurant_email;
+
+        $restaurant->save();
+
+        return redirect()->route('account.corporate.index')
+            ->with('success', 'Your restaurant application has been submitted successfully!');
+    }
+
+
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function restaurantUpdate(Request $request, $id)
+    {
+        $restaurant = Restaurant::findOrFail($id);
+
+        $this->validate($request, [
+            'restaurant_name' => 'required|string|max:255',
+            'restaurant_phone' => 'required',
+            'restaurant_email' => 'required|email',
+            'restaurant_website' => 'required',
+            'restaurant_address' => 'required'
+        ]);
+
+        $restaurant->name = $request->restaurant_name;
+        $restaurant->address = $request->restaurant_address;
+        $restaurant->phone = $request->restaurant_phone;
+        $restaurant->website = $request->restaurant_website;
+        $restaurant->email = $request->restaurant_email;
+
+        $restaurant->save();
+
+        return back()->with('success', 'Application Updated successfully');
+
     }
 
     /**
@@ -77,18 +122,6 @@ class AccountController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
     {
         //
     }

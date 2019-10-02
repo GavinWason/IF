@@ -40,11 +40,17 @@
                                                         <a class="remove-noti" href="#" title="" itemprop="url"><img src="{{ asset('images/close-icon.png') }}" alt="close-icon.png" itemprop="image"></a>
                                                     </div>
 
+                                                    @if (session('success'))
+                                                        <div class="alert alert-success text-center mt-5" role="alert">
+                                                            {{session('success')}}
+                                                        </div>
+                                                    @else
                                                     <div class="dashboard-title">
                                                         <h4 itemprop="headline">APPLICATION FORM</h4>
                                                         <span>Fill in the required details and submit your application. Upon successful
                                                             review your application would be validated</span>
                                                     </div>
+                                                    @endif
 
                                                     <div class="restaurant-detail-tabs">
                                                         <ul class="nav nav-tabs">
@@ -54,27 +60,28 @@
                                                         </ul>
                                                         <div class="tab-content">
                                                             <div class="tab-pane fade in active" id="tab1-1">
-                                                                <form class="restaurant-info-form brd-rd5">
+                                                                <form method="post" action="{{ route('account.corporate.restaurant.store') }}" class="restaurant-info-form brd-rd5">
+                                                                    @csrf
                                                                     <div class="row">
                                                                         <div class="col-md-6 col-sm-12 col-lg-6">
                                                                             <label>Restaurant name <sup>*</sup></label>
-                                                                            <input class="brd-rd3" type="text">
+                                                                            <input name="restaurant_name" class="brd-rd3" type="text" required>
                                                                         </div>
                                                                         <div class="col-md-6 col-sm-12 col-lg-6">
                                                                             <label>Contact phone <sup>*</sup></label>
-                                                                            <input class="brd-rd3" type="text" required>
+                                                                            <input name="restaurant_phone" class="brd-rd3" type="text" required>
                                                                         </div>
                                                                         <div class="col-md-6 col-sm-12 col-lg-6">
                                                                             <label>Contact Email</label>
-                                                                            <input class="brd-rd3" type="email" required>
+                                                                            <input name="restaurant_email" class="brd-rd3" type="email">
                                                                         </div>
                                                                         <div class="col-md-6 col-sm-12 col-lg-6">
                                                                             <label>Website</label>
-                                                                            <input class="brd-rd3" type="text">
+                                                                            <input name="restaurant_website" class="brd-rd3" type="text">
                                                                         </div>
                                                                         <div class="col-md-12 col-sm-12 col-lg-12">
                                                                             <label>Address</label>
-                                                                            <textarea class="brd-rd3" required></textarea>
+                                                                            <textarea name="restaurant_address" class="brd-rd3" required></textarea>
                                                                         </div>
                                                                         <div class="col-md-12 col-sm-12 col-lg-12">
                                                                             <div class="step-buttons">
@@ -99,23 +106,27 @@
                                                                     <h4 class="title3" itemprop="headline"><span class="sudo-bottom sudo-bg-red">Rest</span>aurant</h4>
                                                                     <div class="row">
                                                                         <div class="restaurants-list">
+                                                                            @forelse(Auth::user()->restaurants as $restaurant)
                                                                             <div class="featured-restaurant-box style3 brd-rd5">
                                                                                 <div class="featured-restaurant-thumb"><a href="#" title="" itemprop="url"><img src="{{ asset('images/resource/restaurant-logo1-2.png') }}" alt="restaurant-logo1-2.png" itemprop="image"></a></div>
                                                                                 <div class="featured-restaurant-info">
-                                                                                    <span class="red-clr">5th Avenue New York 68</span>
-                                                                                    <h4 itemprop="headline"><a href="{{ route('account.corporate.application') }}" title="" itemprop="url">Pizza Hut</a></h4>
+                                                                                    <span class="red-clr">{{ $restaurant->address }}</span>
+                                                                                    <h4 itemprop="headline"><a href="{{ route('account.corporate.application', $restaurant->id) }}" title="" itemprop="url">{{ $restaurant->name }}</a></h4>
                                                                                     <ul class="post-meta">
-                                                                                        <li><i class="fa fa-envelope"></i> test@email.com</li>
-                                                                                        <li><i class="fa fa-phone"></i> +243 443 333 112</li>
+                                                                                        <li><i class="fa fa-envelope"></i> {{ $restaurant->email }}</li>
+                                                                                        <li><i class="fa fa-phone"></i> {{ $restaurant->phone }}</li>
                                                                                     </ul>
                                                                                 </div>
                                                                                 <div class="view-menu-liks">
                                                                                     <div class="order-info">
-                                                                                        <span class="processing brd-rd3" style="padding: 10px 25px">PROCESSING</span>
+                                                                                        <span class="processing brd-rd3" style="padding: 10px 25px; text-transform: uppercase;">{{ $restaurant->status }}</span>
                                                                                     </div>
-                                                                                    <a class="brd-rd3" href="{{ route('account.corporate.application') }}" title="" itemprop="url">Quick View</a>
+                                                                                    <a class="brd-rd3" href="{{ route('account.corporate.application', $restaurant->id) }}" title="" itemprop="url">Quick View</a>
                                                                                 </div>
                                                                             </div>
+                                                                            @empty
+                                                                                You do not have any application for registration of a restaurant
+                                                                            @endforelse
                                                                         </div>
                                                                     </div>
 

@@ -37,9 +37,12 @@ Route::prefix('account')
         Route::get('/profile', 'AccountController@profile')->name('account.profile.index');
         Route::post('/profile', 'AccountController@profileUpdate')->name('account.profile.edit');
 
-
         Route::get('/corporate', 'AccountController@corporate')->name('account.corporate.index');
-        Route::get('/corporate/application/aaaa', 'AccountController@corporateApplication')->name('account.corporate.application');
+        Route::post('/corporate', 'AccountController@restaurantStore')->name('account.corporate.restaurant.store');
+//        Route::post('/corporate', 'AccountController@charityStore')->name('account.corporate.charity.store');
+
+        Route::get('/corporate/application/{id}', 'AccountController@corporateApplication')->name('account.corporate.application');
+        Route::post('/corporate/application/{id}', 'AccountController@restaurantUpdate')->name('account.corporate.restaurant.update');
 
         Route::get('/address', 'AccountController@address')->name('account.address.index');
         Route::post('/address', 'AccountController@addressUpdate')->name('account.address.edit');

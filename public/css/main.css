@@ -7165,5 +7165,8 @@ a.thanks-close:focus {color: #333;}
   background: #ffbe00;
 }
 
+.text-capitalize{
+  text-transform: uppercase;
+}
 
 

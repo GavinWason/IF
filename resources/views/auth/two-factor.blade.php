@@ -21,14 +21,14 @@
                             <div class="sign-popup-wrapper brd-rd5">
                                 <div class="sign-popup-inner brd-rd5">
                                     <div class="sign-popup-title text-center mb-0">
-                                        <h5 itemprop="headline">Verify IDENTITY</h5>
+                                        <h5 itemprop="headline">{{ $title }}</h5>
                                         <div class="alert alert-info mt-5" role="alert">
                                             Enter the verification code you received on your Email
                                         </div>
                                     </div>
                                     <span class="popup-seprator text-center"><i class="brd-rd50"><i class="fa fa-heart"></i></i></span>
 
-                                    <form class="sign-form" method="POST" action="{{ route('2fa.verify') }}" autocomplete="off">
+                                    <form class="sign-form" method="POST" action="{{ route($verify2faRoute) }}" autocomplete="off">
                                     @csrf
 
                                         <div class="row">

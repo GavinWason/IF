@@ -30,7 +30,6 @@ Route::post('/verify/2fa', 'Auth\TwoFactorController@verifyToken')->name('2fa.ve
  * Client account dashboard
  */
 Route::prefix('account')
-    ->middleware(['auth', 'verified'])
     ->group(function(){
 
         Route::get('/', 'AccountController@index')->name('account.index');
@@ -46,4 +45,40 @@ Route::prefix('account')
 
         Route::get('/address', 'AccountController@address')->name('account.address.index');
         Route::post('/address', 'AccountController@addressUpdate')->name('account.address.edit');
+    });
+
+
+/**
+ * Admin account dashboard
+ */
+Route::namespace('Admin')
+    ->prefix('admin')
+    ->group(function(){
+
+
+        // authentication
+        Route::namespace('Auth')->group(function () {
+            Route::get('/register', 'RegisterController@create')->name('admin.register');
+            Route::post('/register', 'RegisterController@store')->name('admin.register.store');
+            Route::get('/login', 'LoginController@showLoginForm')->name('admin.login');
+            Route::post('/login', 'LoginController@login')->name('admin.login.enter');
+            Route::post('/reset', 'LoginController@loginAgent')->name('admin.login.enter');
+            Route::post('/logout', 'LoginController@logout')->name('admin.logout');
+
+            Route::get('/password/reset','ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+            Route::post('/password/email','ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+            Route::get('/password/reset/{token}','ResetPasswordController@showResetForm')->name('admin.password.reset');
+            Route::post('/password/reset','ResetPasswordController@reset')->name('admin.password.update');
+
+            Route::get('/verify/2fa', 'TwoFactorController@index')->name('admin.2fa.index');
+            Route::post('/verify/2fa', 'TwoFactorController@verifyToken')->name('admin.2fa.verify');
+        });
+
+        // dashboard
+        Route::middleware('auth:admin')->group(function () {
+            Route::get('/', 'DashboardController@index')->name('admin.dashboard.index');
+            Route::get('/profile', 'AccountController@profile')->name('admin.profile.index');
+            Route::post('/profile', 'AccountController@profileUpdate')->name('admin.profile.edit');
+        });
+
     });

@@ -27,8 +27,6 @@ class TwoFactorVerify
         $user->token_2fa = mt_rand(100000, 999999);
         $user->save();
 
-        //Twilio send message
-
         //Or Send Email
         Mail::to($user->email)->send(new CodeVerify());
 

@@ -39,6 +39,26 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function showLoginForm()
+    {
+        session()->put('previousUrl', url()->previous());
+
+        return view ('auth.login')->with([
+            'title' => 'SIGN IN',
+            'homeRoute' => 'home.index',
+            'loginRoute' => 'login',
+            'forgotPasswordRoute' => 'password.request',
+        ]);
+    }
+
+    /**
+     * Redirect to previous page user was on before signing in.
+     * @return mixed
+     */
+    public function redirectTo(){
+        return str_replace(url('/'), '', session()->get('previousUrl', '/'));
+    }
+
     public function authenticated()
     {
         $user = Auth::user();
@@ -46,5 +66,15 @@ class LoginController extends Controller
         $user->save();
 
         return redirect('/account');
+    }
+
+    /**
+     * Override logout method to prevent logout to flush sessions of all other auth (e.g. Auth::guard('admin')
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function logout(){
+        Auth::logout();
+
+        return redirect('/')->with('status','User has been logged out!');
     }
 }

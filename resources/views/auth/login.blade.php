@@ -7,7 +7,7 @@
 
             <div class="container">
                 <div class="row justify-content-center mb-5" style="margin-top: -5%">
-                    <h1 itemprop="headline"><a href="{{ url('/') }}" title="Home" itemprop="url">
+                    <h1 itemprop="headline"><a href="{{ route($homeRoute) }}" title="Home" itemprop="url">
                             <img src="{{ asset('images/logo.png') }}" alt="logo" itemprop="image"></a>
                     </h1>
                 </div>
@@ -20,11 +20,11 @@
                             <div class="sign-popup-wrapper brd-rd5">
                                 <div class="sign-popup-inner brd-rd5">
                                     <div class="sign-popup-title text-center">
-                                        <h4 itemprop="headline">SIGN IN</h4>
+                                        <h4 itemprop="headline">{{ $title }}</h4>
                                     </div>
                                     <span class="popup-seprator text-center"><i class="brd-rd50"><i class="fa fa-heart"></i></i></span>
 
-                                    <form class="sign-form" method="POST" action="{{ route('login') }}">
+                                    <form class="sign-form" method="POST" action="{{ route($loginRoute) }}">
                                         @csrf
                                         <div class="row">
                                             <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
@@ -59,7 +59,7 @@
                                             <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
                                                 <a class="sign-btn" href="{{ route('register') }}" title="" itemprop="url">Not a member? Sign up</a>
                                                 @if (Route::has('password.request'))
-                                                    <a class="recover-btn" href="{{ route('password.request') }}" title="" itemprop="url">Recover my password</a>
+                                                    <a class="recover-btn" href="{{ route($forgotPasswordRoute) }}" title="" itemprop="url">Recover my password</a>
                                                 @endif
                                             </div>
                                         </div>

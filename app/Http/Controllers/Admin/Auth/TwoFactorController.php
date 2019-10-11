@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Admin\Auth;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -16,7 +16,7 @@ class TwoFactorController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth:admin');
     }
 
     /**
@@ -25,9 +25,9 @@ class TwoFactorController extends Controller
     public function index()
     {
         return view('auth.two-factor')->with([
-            'title' => 'Verify IDENTITY',
-            'homeRoute' => 'home.index',
-            'verify2faRoute' => '2fa.verify',
+            'title' => 'Verify IDENTITY | ADMIN',
+            'homeRoute' => 'admin.dashboard.index',
+            'verify2faRoute' => 'admin.2fa.verify',
         ]);
     }
 
@@ -42,7 +42,7 @@ class TwoFactorController extends Controller
         if($request->input('2fa') == $user->token_2fa){
             $user->token_2fa_expiry = Carbon::now()->addMinutes(config('session.lifetime'));
             $user->save();
-            return redirect('/account');
+            return redirect()->route('admin.dashboard.index');
         } else {
             return back()->withInput();
         }

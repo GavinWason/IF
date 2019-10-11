@@ -36,4 +36,20 @@ class ResetPasswordController extends Controller
     {
         $this->middleware('guest');
     }
+
+
+    /**
+     * Override the reset password form.
+     *
+     * @param Request $request
+     * @param null $token
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showResetForm(Request $request, $token = null){
+        return view('auth.passwords.reset',[
+            'title' => 'Reset Password',
+            'passwordUpdateRoute' => 'password.update',
+            'token' => $token,
+        ]);
+    }
 }

@@ -2,23 +2,14 @@
 
 namespace App\Http\Controllers\Admin\Auth;
 
-use Carbon\Carbon;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    use ThrottlesLogins;
-    /**
-     * Max login attempts allowed.
-     */
-    public $maxAttempts = 5;
-    /**
-     * Number of minutes to lock the login.
-     */
-    public $decayMinutes = 3;
+    use AuthenticatesUsers;
 
     /**
      * Create a new controller instance.
@@ -28,14 +19,6 @@ class LoginController extends Controller
     {
         $this->middleware('guest:admin')->except('logout');
     }
-    /**
-     * Username used in ThrottlesLogins trait
-     * @return string
-     */
-    public function username(){
-        return 'email';
-    }
-
 
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -52,23 +35,6 @@ class LoginController extends Controller
         ]);
     }
 
-    /**
-     * @param Request $request
-     */
-    private function validator(Request $request){
-        //validation rules.
-        $rules = [
-            'email'    => 'required|email|exists:admins|min:5|max:191',
-            'password' => 'required|string|min:4|max:255',
-        ];
-        //custom validation error messages.
-        $messages = [
-            'email.exists' => 'These credentials do not match our records.',
-        ];
-        //validate the request.
-        $request->validate($rules,$messages);
-    }
-
 
     /**
      * @param Request $request
@@ -77,54 +43,40 @@ class LoginController extends Controller
      */
     public function login(Request $request){
 
-        $this->validator($request);
-
-        //check if the user has too many login attempts.
-        if ($this->hasTooManyLoginAttempts($request)){
-            //Fire the lockout event.
-            $this->fireLockoutEvent($request);
-            //redirect the user back after lockout.
-            return $this->sendLockoutResponse($request);
-        }
+        // Validate the form data
+        $this->validate($request, [
+            'email'   => 'required|email',
+            'password' => 'required|min:6'
+        ]);
 
         // Attempt to log the agent in
-        if(Auth::guard('admin')->attempt($request->only('email', 'password'), $request->filled('remember'))){
-            //Authentication passed...
-            return redirect()
-                ->intended(route('admin.dashboard.index'))
-                ->with('status','You are Logged in as Admin!');
+        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
+            // if successful, then redirect to their intended location
+            return redirect()->intended(route('admin.dashboard.index'));
         }
+        // if unsuccessful, then redirect back to the login with the form data
+        return redirect()
+            ->back()
+            ->withInput($request->only('email', 'remember'))
+            ->with('error', 'Login Failed... please try again!');
+    }
 
-        //keep track of login attempts from the user.
-        $this->incrementLoginAttempts($request);
-
-        //Authentication failed...
-        return $this->loginFailed();
+    /**
+     * Redirect to previous page user was on before signing in.
+     * @return mixed
+     */
+    public function redirectTo(){
+        return str_replace(url('/'), '', session()->get('previousUrl', '/admin'));
     }
 
     /**
      * @return \Illuminate\Http\RedirectResponse
      */
-    private function loginFailed(){
-        return redirect()
-            ->back()
-            ->withInput()
-            ->with('error','Login failed, please try again!');
-    }
-
-    public function authenticated()
-    {
-        $admin = Auth::user();
-        $admin->token_2fa_expiry = Carbon::now();
-        $admin->save();
-
-        return redirect()->route('admin.dashboard.index');
-    }
-
     public function logout(){
         Auth::guard('admin')->logout();
+
         return redirect()
             ->route('admin.login')
-            ->with('status', 'Admin logged out successfully!');
+            ->with('status', 'Admin logged out!');
     }
 }

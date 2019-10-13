@@ -30,6 +30,7 @@ Route::post('/verify/2fa', 'Auth\TwoFactorController@verifyToken')->name('2fa.ve
  * Client account dashboard
  */
 Route::prefix('account')
+    ->middleware(['auth', 'verified'])
     ->group(function(){
 
         Route::get('/', 'AccountController@index')->name('account.index');

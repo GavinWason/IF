@@ -23,9 +23,16 @@
                                         <h4 itemprop="headline">{{ $title }}</h4>
                                     </div>
                                     <span class="popup-seprator text-center"><i class="brd-rd50"><i class="fa fa-heart"></i></i></span>
-
                                     <form class="sign-form" method="POST" action="{{ route($loginRoute) }}">
                                         @csrf
+
+                                        @if(session('error'))
+                                        <div class="alert alert-danger text-center">
+                                            <strong>Whoops!</strong><br><br>
+                                            {{ session('error') }}
+                                        </div>
+                                        @endif
+
                                         <div class="row">
                                             <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
                                                 <label>Email Address <sup>*</sup></label>

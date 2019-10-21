@@ -7,7 +7,7 @@
     @include('admin.partials.header')
 
     <div class="app-main">
-        @include('admin.partials.sidebar')
+        @include('admin.partials.sidebar', ['active' => 'dashboard'])
 
         <div class="app-main__outer">
             <div class="app-main__inner">
@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="widget-content-right">
                                     <div class="widget-numbers text-white">
-                                        <span>12</span>
+                                        <span>{{ $countRestaurants }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="widget-content-right">
                                     <div class="widget-numbers text-white">
-                                        <span>43</span>
+                                        <span>{{ $countUsers }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -79,7 +79,7 @@
                         <div class="card mb-3 widget-content bg-premium-dark">
                             <div class="widget-content-wrapper text-white">
                                 <div class="widget-content-left">
-                                    <div class="widget-heading">Gifts</div>
+                                    <div class="widget-heading">Donations</div>
                                     <div class="widget-subheading">Total food value given</div>
                                 </div>
                                 <div class="widget-content-right">
@@ -110,14 +110,15 @@
                                     <tr>
                                         <th class="text-center">#</th>
                                         <th>Name</th>
-                                        <th class="text-center">Contact</th>
+                                        <th>Contact</th>
                                         <th class="text-center">Entity</th>
                                         <th class="text-center">Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    @forelse($restaurantApplications as $restApplication)
                                     <tr>
-                                        <td class="text-center text-muted">#345</td>
+                                        <td class="text-center text-muted">#{{ $restApplication->ref_number }}</td>
                                         <td>
                                             <div class="widget-content p-0">
                                                 <div class="widget-content-wrapper">
@@ -132,24 +133,27 @@
                                                         </div>
                                                     </div>
                                                     <div class="widget-content-left flex2">
-                                                        <div class="widget-heading">John Doe</div>
+                                                        <div class="widget-heading">{{ $restApplication->name }}</div>
                                                         <div class="widget-subheading opacity-7">
-                                                            Web Developer
+                                                            {{ $restApplication->address }}
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="text-center">Madrid</td>
+                                        <td>{{ $restApplication->website }} <br/> {{ $restApplication->email }}</td>
                                         <td class="text-center">
                                             <div class="badge badge-warning">Restaurant</div>
                                         </td>
                                         <td class="text-center">
-                                            <button type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm">
+                                            <a href="{{ route('admin.restaurant.application.show', $restApplication->ref_number) }}" type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm">
                                                 Details
-                                            </button>
+                                            </a>
                                         </td>
                                     </tr>
+                                    @empty
+
+                                    @endforelse
 
                                     <tr>
                                         <td class="text-center text-muted">#347</td>
@@ -198,7 +202,7 @@
                                     <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
                                         <ul class="nav flex-column">
                                             <li class="nav-item">
-                                                <a href="#" class="nav-link">
+                                                <a href="{{ route('admin.restaurant.application.index') }}" class="nav-link">
                                                     <span>Restaurants</span>
                                                 </a>
                                             </li>

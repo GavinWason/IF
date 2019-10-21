@@ -1,6 +1,6 @@
 <div class="app-sidebar sidebar-shadow bg-midnight-bloom sidebar-text-light">
     <div class="app-header__logo">
-        <div class="logo-src" style="background:url({{ asset('images/logo-inverse.png') }})"> Salut </div>
+        <div class="logo-src" style="background:url({{ asset('images/logo-inverse.png') }})"> </div>
         <div class="header__pane ml-auto">
             <div>
                 <button
@@ -44,14 +44,14 @@
             <ul class="vertical-nav-menu">
                 <li class="app-sidebar__heading">Dashboards</li>
                 <li>
-                    <a href="{{ route('admin.dashboard.index') }}" class="mm-active">
+                    <a href="{{ route('admin.dashboard.index') }}" class="{{ $active === 'dashboard' ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-home"></i>
                         Dashboard
                     </a>
                 </li>
                 <li class="app-sidebar__heading">Entities</li>
                 <li>
-                    <a href="#">
+                    <a href="#" class="{{ $active === 'restaurants' ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-help2"></i>
                         Restaurants
                         <i
@@ -60,19 +60,19 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="#">
+                            <a href="{{ route('admin.restaurant.index') }}">
                                 <i class="metismenu-icon"> </i>All Restaurants
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{ route('admin.restaurant.application.index') }}">
                                 <i class="metismenu-icon"> </i>Applications
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" class="{{ $active === 'charity' ? 'mm-active' : '' }}">
                         <i class="metismenu-icon fa fa-blind"></i>
                         Charity
                         <i
@@ -95,7 +95,7 @@
 
                 <li class="app-sidebar__heading">People</li>
                 <li>
-                    <a href="#">
+                    <a href="#" class="{{ $active === 'admins' ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-user"></i>
                         Admins
                         <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
@@ -119,28 +119,41 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" class="{{ $active === 'clients' ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-users"></i>
                         Clients
                     </a>
                 </li>
                 <li class="app-sidebar__heading">Miscellaneous</li>
                 <li>
-                    <a href="#">
+                    <a href="#" class="{{ $active === 'settings' ? 'mm-active' : '' }}">
+                        <i class="metismenu-icon pe-7s-settings"></i>
+                        Settings
+                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="{{ route('admin.role.index') }}">
+                                <i class="metismenu-icon"> </i>Roles
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('admin.permission.index') }}">
+                                <i class="metismenu-icon"> </i>Permissions
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="{{ $active === 'orders' ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-news-paper"> </i>
                         Orders
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" class="{{ $active === 'donations' ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-gift"></i>
-                        Gifts
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-settings"> </i>
-                        Settings
+                        Donations
                     </a>
                 </li>
             </ul>

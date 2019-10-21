@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Restaurant;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AccountController extends Controller
@@ -46,7 +47,7 @@ class AccountController extends Controller
      */
     public function corporateApplication($id)
     {
-        $restaurant = Restaurant::find($id);
+        $restaurant = Restaurant::findOrFail($id);
         return view('account.application.restaurant')
             ->with('restaurant', $restaurant);
     }
@@ -69,6 +70,7 @@ class AccountController extends Controller
 
         $restaurant = new Restaurant;
 
+        $restaurant->ref_number = $this->registrationRef();
         $restaurant->name = $request->restaurant_name;
         $restaurant->user_id = auth()->user() ? auth()->user()->id : null;
         $restaurant->address = $request->restaurant_address;
@@ -113,36 +115,25 @@ class AccountController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+    function registrationRef(){
+        $month = Carbon::now()->format('m'); // month of year (01, 12)
+        $day = Carbon::now()->format('d'); // day of month (01, 31)
+
+        //type 1 [restaurant] vs 2 [charity]
+
+        $orderNumber = $month.$day.$this->randomString(2); // append the above
+        return $orderNumber;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    function randomString($length)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $str = "";
+        $characters = array_merge(range('0','9'));
+        $max = count($characters) - 1;
+        for ($i = 0; $i < $length; $i++) {
+            $rand = mt_rand(0, $max);
+            $str .= $characters[$rand];
+        }
+        return $str;
     }
 }

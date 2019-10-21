@@ -78,8 +78,26 @@ Route::namespace('Admin')
         // dashboard
         Route::middleware('auth:admin')->group(function () {
             Route::get('/', 'DashboardController@index')->name('admin.dashboard.index');
-            Route::get('/profile', 'AccountController@profile')->name('admin.profile.index');
-            Route::post('/profile', 'AccountController@profileUpdate')->name('admin.profile.edit');
+
+            //restaurants
+            Route::get('/restaurants', 'DashboardController@restaurants')->name('admin.restaurant.index');
+            Route::get('/restaurant/{ref}', 'DashboardController@restaurant')->name('admin.restaurant.show');
+
+            //charities
+
+
+            //applications
+            Route::prefix('application')->group(function (){
+                Route::get('/restaurants/', 'DashboardController@applicationRestaurants')->name('admin.restaurant.application.index');
+                Route::get('/restaurant/{ref}', 'DashboardController@applicationRestaurant')->name('admin.restaurant.application.show');
+                Route::post('/restaurant/{ref}', 'DashboardController@applRestUpdate')->name('admin.restaurant.application.update');
+            });
+
+            //roles & permission
+            Route::get('/roles', 'RoleController@index')->name('admin.role.index');
+            Route::get('/roles/create', 'RoleController@create')->name('admin.role.create');
+            Route::post('/roles/create', 'RoleController@store')->name('admin.role.store');
+            Route::get('/permissions', 'PermissionController@index')->name('admin.permission.index');
         });
 
     });

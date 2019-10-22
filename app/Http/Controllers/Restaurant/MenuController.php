@@ -1,68 +1,41 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Restaurant;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
 
-class PermissionController extends Controller
+class MenuController extends Controller
 {
     /**
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth:admin');
-    }
-
-    /**
+     * Display a listing of the resource.
+     *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $permissions = Permission::all();
-
-        return view('admin.settings.permissions')
-            ->with('permissions', $permissions);
+        return view('account.restaurant.menus');
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        $roles = Role::all(); //Get all roles
-
-        return view('admin.settings.permissions_create')
-            ->with('roles', $roles);
+        return view('account.restaurant.menus_create');
     }
 
-
     /**
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Illuminate\Validation\ValidationException
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-                'name'=> 'required|max:40',
-            ]
-        );
-
-        $permission = Permission::create(['name' => $request['name'], 'guard_name' => 'web' ]);
-
-//        $roles = $request['roles'];
-
-
-//        if(!empty($roles)){
-//            $permission->synRoles($roles);
-//        }
-
-        return redirect()->back()
-            ->with('success', 'New permission '. $permission->name.' created with success!');
+        //
     }
 
     /**

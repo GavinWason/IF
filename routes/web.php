@@ -46,6 +46,16 @@ Route::prefix('account')
 
         Route::get('/address', 'AccountController@address')->name('account.address.index');
         Route::post('/address', 'AccountController@addressUpdate')->name('account.address.edit');
+
+        //restaurant management
+        Route::namespace('Restaurant')
+            ->prefix('restaurant')
+            ->group(function (){
+
+                Route::get('/', 'DashboardController@details')->name('account.restaurant.details.index');
+                Route::get('/menus', 'MenuController@index')->name('account.restaurant.menu.index');
+                Route::get('/menus/create', 'MenuController@create')->name('account.restaurant.menu.create');
+            });
     });
 
 
@@ -98,6 +108,8 @@ Route::namespace('Admin')
             Route::get('/roles/create', 'RoleController@create')->name('admin.role.create');
             Route::post('/roles/create', 'RoleController@store')->name('admin.role.store');
             Route::get('/permissions', 'PermissionController@index')->name('admin.permission.index');
+            Route::get('/permissions/create', 'PermissionController@create')->name('admin.permission.create');
+            Route::post('/permissions/create', 'PermissionController@store')->name('admin.permission.store');
         });
 
     });

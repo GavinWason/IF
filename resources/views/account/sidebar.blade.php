@@ -20,15 +20,39 @@
             </div>
             @endauth
 
-            <ul class="nav nav-tabs">
-                {{--<li class="active"><a href="{{ route('account.index') }}"><i class="fa fa-dashboard"></i> DASHBOARD</a></li>--}}
-                <li><a href="{{ route('account.index') }}"><i class="fa fa-dashboard"></i> DASHBOARD</a></li>
-                <li><a href="{{ route('account.profile.index') }}"><i class="fa fa-cog"></i> MY PROFILE</a></li>
-                <li><a href="#"><i class="fa fa-shopping-basket"></i> MY ORDERS</a></li>
-                <li><a href="#"><i class="fa fa-comments"></i> MY REVIEWS</a></li>
-                <li><a href="#"><i class="fa fa-heart"></i> SHORTLISTS</a></li>
-                <li><a href="{{ route('account.corporate.index') }}"><i class="fa fa-building"></i> CORPORATE</a></li>
-            </ul>
+            @hasanyrole('Restaurant|Charity')
+                @role('Restaurant')
+                    <ul class="nav nav-tabs">
+                        <li><a href="{{ route('account.index') }}"><i class="fa fa-dashboard"></i> DASHBOARD</a></li>
+                        <li><a href="{{ route('account.restaurant.details.index') }}"><i class="fa fa-list"></i> DETAILS</a></li>
+                        <li><a href="{{ route('account.restaurant.menu.index') }}"><i class="fa fa-heart"></i> MENUS</a></li>
+                        <li><a href="#"><i class="fa fa-shopping-basket"></i>  ORDERS</a></li>
+                        <li><a href="#"><i class="fa fa-comments"></i> REVIEWS</a></li>
+                    </ul>
+                @endrole
+
+                @role('Charity')
+                    <ul class="nav nav-tabs">
+                        {{--<li class="active"><a href="{{ route('account.index') }}"><i class="fa fa-dashboard"></i> DASHBOARD</a></li>--}}
+                        <li><a href="{{ route('account.index') }}"><i class="fa fa-dashboard"></i> DASHBOARD</a></li>
+                        <li><a href="{{ route('account.profile.index') }}"><i class="fa fa-cog"></i> MY PROFILE</a></li>
+                        <li><a href="#"><i class="fa fa-shopping-basket"></i> MY ORDERS</a></li>
+                        <li><a href="#"><i class="fa fa-comments"></i> MY REVIEWS</a></li>
+                        <li><a href="#"><i class="fa fa-heart"></i> SHORTLISTS</a></li>
+                        <li><a href="{{ route('account.corporate.index') }}"><i class="fa fa-building"></i> CORPORATE</a></li>
+                    </ul>
+                @endrole
+            @else
+                    <ul class="nav nav-tabs">
+                        {{--<li class="active"><a href="{{ route('account.index') }}"><i class="fa fa-dashboard"></i> DASHBOARD</a></li>--}}
+                        <li><a href="{{ route('account.index') }}"><i class="fa fa-dashboard"></i> DASHBOARD</a></li>
+                        <li><a href="{{ route('account.profile.index') }}"><i class="fa fa-cog"></i> MY PROFILE</a></li>
+                        <li><a href="#"><i class="fa fa-shopping-basket"></i> MY ORDERS</a></li>
+                        <li><a href="#"><i class="fa fa-comments"></i> MY REVIEWS</a></li>
+                        <li><a href="#"><i class="fa fa-heart"></i> SHORTLISTS</a></li>
+                        <li><a href="{{ route('account.corporate.index') }}"><i class="fa fa-building"></i> CORPORATE</a></li>
+                    </ul>
+            @endhasanyrole
         </div>
     </div>
 </div>

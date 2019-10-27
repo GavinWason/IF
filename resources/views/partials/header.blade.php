@@ -22,27 +22,21 @@
     </div><!-- Topbar -->
     <div class="logo-menu-sec">
         <div class="container">
-            <div class="logo"><h1 itemprop="headline"><a href="#" title="Home" itemprop="url"><img src="{{ asset('images/logo2.png') }}" alt="logo" itemprop="image"></a></h1></div>
+            <div class="logo"><h1 itemprop="headline"><a href="{{ route('home.index') }}" title="Home" itemprop="url"><img src="{{ asset('images/logo2.png') }}" alt="logo" itemprop="image"></a></h1></div>
             <nav>
                 <div class="menu-sec">
                     <ul>
                         <li><a href="#" title="ABOUT US" itemprop="url"><span class="red-clr">KNOW MORE</span>ABOUT US</a></li>
-                        <li class="menu-item-has-children"><a href="#" title="RESTAURANTS" itemprop="url"><span class="red-clr">REAL FOOD</span>RESTAURANTS</a>
+                        <li><a href="{{ route('home.menu.index') }}" title="FOOD MENUS" itemprop="url"><span class="red-clr">REAL FOOD</span>MENUS</a></li>
+                        <li class="menu-item-has-children"><a href="#" title="PARTNERS" itemprop="url"><span class="red-clr">INFORMATION</span>PARTNERS</a>
                             <ul class="sub-dropdown">
-                                <li><a href="#" title="RESTAURANT 1" itemprop="url">RESTAURANT 1</a></li>
-                                <li><a href="#" title="RESTAURANT 2" itemprop="url">RESTAURANT 2</a></li>
-                                <li><a href="#" title="RESTAURANT DETAILS" itemprop="url">RESTAURANT DETAILS</a></li>
+                                <li><a href="#" title="RESTAURANT 1" itemprop="url">RESTAURANTS</a></li>
+                                <li><a href="#" title="RESTAURANT 2" itemprop="url">CHARITIES</a></li>
                             </ul>
                         </li>
-                        <li class="menu-item-has-children"><a href="#" title="RESTAURANTS" itemprop="url"><span class="red-clr">INFORMATION</span>OTHER PAGES</a>
-                            <ul class="sub-dropdown">
-                                <li><a href="#" title="RESTAURANT 1" itemprop="url">DEMO</a></li>
-                                <li><a href="#" title="RESTAURANT 2" itemprop="url">DEMO</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#" title="CONTACT US" itemprop="url"><span class="red-clr">REAL FOOD</span>CONTACT US</a></li>
+                        <li><a href="#" title="CONTACT US" itemprop="url"><span class="red-clr">KNOW MORE</span>CONTACT US</a></li>
                     </ul>
-                    <a class="red-bg brd-rd4" href="#" title="Register" itemprop="url">GET STARTED</a>
+                    <a class="red-bg brd-rd4" href="{{ route('home.menu.index') }}" title="Register" itemprop="url">GET STARTED</a>
                 </div>
             </nav><!-- Navigation -->
         </div>

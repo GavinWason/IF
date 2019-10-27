@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Menu;
 use App\Restaurant;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -22,7 +23,9 @@ class AccountController extends Controller
      */
     public function index()
     {
-        return view('account.dashboard');
+        $menus = Menu::paginate(5);
+        return view('account.dashboard')
+            ->with('menus', $menus);
     }
 
     /**

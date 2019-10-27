@@ -33,32 +33,30 @@
                                                         <a class="btn btn-primary pull-right" href="{{ route('account.restaurant.menu.index') }}" title="" itemprop="url">All Menus</a>
                                                     </div>
 
-                                                    <form method="post" action="#" class="restaurant-info-form brd-rd5">
+                                                    @include('partials.message')
+
+                                                    <form method="post" action="{{ route('account.restaurant.menu.store') }}" class="restaurant-info-form brd-rd5" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="row">
                                                             <div class="col-md-6 col-sm-12 col-lg-6">
-                                                                <label>Restaurant name <sup>*</sup></label>
-                                                                <input name="restaurant_name" class="brd-rd3" type="text" required>
+                                                                <label>Menu name <sup>*</sup></label>
+                                                                <input name="menu_name" class="brd-rd3" type="text" required>
                                                             </div>
                                                             <div class="col-md-6 col-sm-12 col-lg-6">
-                                                                <label>Contact phone <sup>*</sup></label>
-                                                                <input name="restaurant_phone" class="brd-rd3" type="text" required>
-                                                            </div>
-                                                            <div class="col-md-6 col-sm-12 col-lg-6">
-                                                                <label>Contact Email</label>
-                                                                <input name="restaurant_email" class="brd-rd3" type="email">
-                                                            </div>
-                                                            <div class="col-md-6 col-sm-12 col-lg-6">
-                                                                <label>Website</label>
-                                                                <input name="restaurant_website" class="brd-rd3" type="text">
+                                                                <label>Price <sup>*</sup></label>
+                                                                <input name="menu_price" class="brd-rd3" type="text" required>
                                                             </div>
                                                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                                                <label>Address</label>
-                                                                <textarea name="restaurant_address" class="brd-rd3" required></textarea>
+                                                                <label>Image </label>
+                                                                <input name="menu_image" class="brd-rd3" type="file">
                                                             </div>
                                                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                                                <div class="step-buttons">
-                                                                    <button class="brd-rd3 red-bg" type="submit">Submit Application</button>
+                                                                <label>Details</label>
+                                                                <textarea name="menu_details" class="brd-rd3" required></textarea>
+                                                            </div>
+                                                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                                                <div class="step-buttons mt-4">
+                                                                    <button class="brd-rd3 red-bg pull-right" type="submit">Create Menu</button>
                                                                 </div>
                                                             </div>
                                                         </div>

@@ -11,14 +11,21 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
 
-/*
+/**
  * pages routes
- */
+ **/
 Route::get('/', 'PagesController@index')->name('home.index');
+Route::get('/menus', 'PagesController@menus')->name('home.menu.index');
+Route::get('/menu/{slug}', 'PagesController@menu')->name('home.menu.show');
+
+/**
+ * basket routes
+ */
+Route::post('/cart', 'CartController@index')->name('home.cart.index');
+Route::post('/menu/{slug}', 'CartController@store')->name('home.cart.store');
+Route::delete('/cart/{menu}', 'CartController@destroy')->name('home.cart.remove');
+
 
 Auth::routes(['verify' => true]);
 
@@ -28,7 +35,7 @@ Route::post('/verify/2fa', 'Auth\TwoFactorController@verifyToken')->name('2fa.ve
 
 /**
  * Client account dashboard
- */
+ **/
 Route::prefix('account')
     ->middleware(['auth', 'verified'])
     ->group(function(){
@@ -53,8 +60,12 @@ Route::prefix('account')
             ->group(function (){
 
                 Route::get('/', 'DashboardController@details')->name('account.restaurant.details.index');
+
+                //menus
                 Route::get('/menus', 'MenuController@index')->name('account.restaurant.menu.index');
                 Route::get('/menus/create', 'MenuController@create')->name('account.restaurant.menu.create');
+                Route::post('/menus/create', 'MenuController@store')->name('account.restaurant.menu.store');
+                Route::get('/menu/{slug}', 'MenuController@show')->name('account.restaurant.menu.show');
             });
     });
 

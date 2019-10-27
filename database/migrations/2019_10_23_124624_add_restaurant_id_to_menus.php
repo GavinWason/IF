@@ -17,6 +17,7 @@ class AddRestaurantIdToMenus extends Migration
             $table->unsignedBigInteger('restaurant_id')->after('name')->nullable();
             $table->foreign('restaurant_id')->references('id')->on('restaurants')
                 ->onUpdate('cascade')->onDelete('set null');
+            $table->string('image')->after('price')->nullable();
         });
     }
 
@@ -28,8 +29,9 @@ class AddRestaurantIdToMenus extends Migration
     public function down()
     {
         Schema::table('menus', function (Blueprint $table) {
-            $table->dropForeign('restaurant_id');
+            $table->dropForeign('menus_restaurant_id_foreign');
             $table->dropColumn('restaurant_id');
+            $table->dropColumn('image');
         });
     }
 }

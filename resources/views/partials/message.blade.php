@@ -22,7 +22,7 @@
     @endif
 
     @if (session('warning'))
-        <div class="alert alert-warning text-center">
+        <div class="alert alert-warning text-center mt-3">
             {{session('warning')}}
         </div>
     @endif

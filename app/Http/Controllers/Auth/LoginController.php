@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 
@@ -74,6 +75,10 @@ class LoginController extends Controller
      */
     public function logout(){
         Auth::logout();
+
+        if(Cart::instance('default')->count() > 0 ){
+            Cart::instance('default')->destroy();
+        }
 
         return redirect('/')->with('status','User has been logged out!');
     }

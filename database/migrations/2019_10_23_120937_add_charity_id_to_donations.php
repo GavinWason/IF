@@ -28,7 +28,7 @@ class AddCharityIdToDonations extends Migration
     public function down()
     {
         Schema::table('donations', function (Blueprint $table) {
-            $table->dropForeign('charity_id');
+            $table->dropForeign('donations_charity_id_foreign');
             $table->dropColumn('charity_id');
         });
     }

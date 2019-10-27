@@ -32,29 +32,29 @@
                                                     <div class="select-wrap-inner">
                                                         <a class="btn btn-primary pull-right" href="{{ route('account.restaurant.menu.create') }}" title="" itemprop="url">New Menu</a>
                                                     </div>
+
                                                     <div class="order-list">
+                                                        @forelse($menus as $menu)
                                                         <div class="order-item brd-rd5">
                                                             <div class="order-thumb brd-rd5">
-                                                                <a href="#" title="" itemprop="url"><img src="{{ asset('images/resource/order-img1.jpg') }}" alt="order-img1.jpg" itemprop="image"></a>
-                                                                <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star-o"></i> 4.25</span>
+                                                                <a href="{{ route('account.restaurant.menu.show', $menu->slug) }}" title="" itemprop="url"><img src="{{ asset($menu->image ? 'storage/menus/'.$menu->image : 'images/resource/order-img1.jpg') }}" alt="order-img1.jpg" itemprop="image"></a>
+                                                                <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star-o"></i> {{ $menu->ratings }}</span>
                                                             </div>
                                                             <div class="order-info">
-                                                                <span class="red-clr">5th Avenue New York 68</span>
-                                                                <h4 itemprop="headline"><a href="#" title="" itemprop="url">Maenaam Thai Restaurant</a></h4>
+                                                                <span class="red-clr">{{ $menu->restaurant->name.' | '.$menu->restaurant->address }}</span>
+                                                                <h4 itemprop="headline"><a href="{{ route('account.restaurant.menu.show', $menu->slug) }}" title="" itemprop="url">{{ $menu->name }}</a></h4>
 
-                                                                <span class="price">$85.00</span>
-                                                                <span class="processing brd-rd3">PROCESSING</span>
-                                                                <a class="brd-rd2" href="#" title="" itemprop="url">Order Detail</a>
+                                                                <span class="price">Ksh {{ $menu->price }}</span>
+                                                                {{--<span class="processing brd-rd3">PROCESSING</span>--}}
+                                                                <a class="brd-rd2" href="{{ route('account.restaurant.menu.show', $menu->slug) }}" title="" itemprop="url">More Details</a>
                                                             </div>
                                                         </div>
+                                                        @empty
+                                                            <div class="alert alert-danger mt-5">
+                                                                No Menus Found
+                                                            </div>
+                                                        @endforelse
                                                     </div>
-                                                    <div class="pagination-wrapper text-center style2">
-                                                        <ul class="pagination justify-content-center">
-                                                            <li class="page-item prev"><a class="page-link brd-rd2" href="#" itemprop="url">PREV</a></li>
-                                                            <li class="page-item"><a class="page-link brd-rd2" href="#" itemprop="url">1</a></li>
-                                                            <li class="page-item"><a class="page-link brd-rd2" href="#" itemprop="url">2</a></li>
-                                                        </ul>
-                                                    </div><!-- Pagination Wrapper -->
                                                 </div>
                                             </div>
                                         </div>

@@ -45,7 +45,6 @@
                                                                 <h4 itemprop="headline"><a href="{{ route('account.restaurant.menu.show', $menu->slug) }}" title="" itemprop="url">{{ $menu->name }}</a></h4>
 
                                                                 <span class="price">Ksh {{ $menu->price }}</span>
-                                                                {{--<span class="processing brd-rd3">PROCESSING</span>--}}
                                                                 <a class="brd-rd2" href="{{ route('account.restaurant.menu.show', $menu->slug) }}" title="" itemprop="url">More Details</a>
                                                             </div>
                                                         </div>

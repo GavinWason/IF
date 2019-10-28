@@ -7,14 +7,19 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified'])->only(['checkout', 'complete']);
+    }
+
     /**
-     * Display a listing of the resource.
+     * Display the cart page
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        return view('cart');
     }
 
     /**
@@ -42,36 +47,21 @@ class CartController extends Controller
             ->with('success', 'Menu added to the basket successfully!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function checkout()
     {
-        //
+        if (Cart::instance('default')->count() == 0){
+            return redirect()->back()->with('error', 'Basket is empty! Add food items to your basket and checkout');
+        }
+        return view('checkout');
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
+     * Complete order checkout
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function complete(Request $request)
     {
         //
     }

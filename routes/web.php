@@ -22,9 +22,10 @@ Route::get('/menu/{slug}', 'PagesController@menu')->name('home.menu.show');
 /**
  * basket routes
  */
-Route::post('/cart', 'CartController@index')->name('home.cart.index');
+Route::get('/cart', 'CartController@index')->name('home.cart.index');
 Route::post('/menu/{slug}', 'CartController@store')->name('home.cart.store');
 Route::delete('/cart/{menu}', 'CartController@destroy')->name('home.cart.remove');
+Route::get('/checkout', 'CartController@checkout')->name('home.checkout.index');
 
 
 Auth::routes(['verify' => true]);

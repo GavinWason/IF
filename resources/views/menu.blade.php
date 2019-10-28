@@ -21,12 +21,6 @@
                         <div class="sec-box">
                             <div class="sec-wrapper">
 
-                                {{--@if (session('success'))--}}
-                                    {{--<div class="alert alert-success ml-4 mr-4">--}}
-                                        {{--{{ session('success') }}--}}
-                                    {{--</div>--}}
-                                {{--@endif--}}
-
                                 @include('partials.message')
 
                                 <div class="col-md-8 col-sm-12 col-lg-8">
@@ -122,7 +116,7 @@
                                                     <ul class="order-method brd-rd2 red-bg">
                                                         <li><span>Total</span> <span class="price">Ksh {{ Cart::instance('default')->total() }}</span></li>
                                                         <li><a class="btn btn-warning btn-sm brd-rd2" href="{{ route('home.menu.index') }}" itemprop="url">BACK TO MENUS</a></li>
-                                                        <li><a class="btn btn-primary brd-rd2" href="#" title="" itemprop="url">ORDER CHECKOUT</a></li>
+                                                        <li><a class="btn btn-primary brd-rd2" href="{{ route('home.checkout.index') }}" title="" itemprop="url">ORDER CHECKOUT</a></li>
                                                     </ul>
                                                 @else
                                                     <div class="alert alert-warning text-center ml-4 mr-4 mb-5">

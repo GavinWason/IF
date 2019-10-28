@@ -36,7 +36,7 @@
                         </li>
                         <li><a href="#" title="CONTACT US" itemprop="url"><span class="red-clr">KNOW MORE</span>CONTACT US</a></li>
                     </ul>
-                    <a class="red-bg brd-rd4" href="{{ route('home.menu.index') }}" title="Register" itemprop="url">GET STARTED</a>
+                    <a class="red-bg brd-rd4" href="{{ route('home.cart.index') }}" title="Basket" itemprop="url">FOOD BASKET&nbsp;&nbsp;<span class="fa fa-shopping-basket"></span></a>
                 </div>
             </nav><!-- Navigation -->
         </div>

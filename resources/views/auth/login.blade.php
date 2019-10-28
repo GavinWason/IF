@@ -54,10 +54,10 @@
                                                     </span>
                                                 @enderror
                                             </div>
-                                            <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 mb-3">
+                                            <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 mb-4">
                                                 <div class="check-box">
-                                                    <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                                    <label>Remember Me</label>
+                                                    <input type="checkbox" name="remember" id="agrement" {{ old('remember') ? 'checked' : '' }} />
+                                                    <label for="agrement">Remember Me</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">

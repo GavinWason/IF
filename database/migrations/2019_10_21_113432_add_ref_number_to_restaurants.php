@@ -14,7 +14,7 @@ class AddRefNumberToRestaurants extends Migration
     public function up()
     {
         Schema::table('restaurants', function (Blueprint $table) {
-            $table->string('ref_number')->after('id')->unique();
+//            $table->string('ref_number')->after('id')->unique();
         });
     }
 
@@ -26,7 +26,7 @@ class AddRefNumberToRestaurants extends Migration
     public function down()
     {
         Schema::table('restaurants', function (Blueprint $table) {
-            $table->dropColumn('ref_number');
+//            $table->dropColumn('ref_number');
         });
     }
 }

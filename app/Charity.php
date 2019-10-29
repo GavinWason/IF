@@ -23,4 +23,12 @@ class Charity extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    /**
+     * Relation with donation model
+     */
+    public function donations()
+    {
+        return $this->hasMany('App\Donation');
+    }
 }

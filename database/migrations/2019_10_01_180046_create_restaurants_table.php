@@ -16,6 +16,7 @@ class CreateRestaurantsTable extends Migration
         Schema::create('restaurants', function (Blueprint $table) {
             $table->bigIncrements('id');
 
+            $table->string('ref_number')->unique();
             $table->string('name');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')

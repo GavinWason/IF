@@ -61,7 +61,7 @@
                                                                 </div>
                                                                 <div class="featured-restaurant-info">
                                                                     <span class="red-clr">{{ $menu->restaurant->name }}</span>
-                                                                    <h4 itemprop="headline"><a href="#" title="" itemprop="url">{{ $menu->name }}</a></h4>
+                                                                    <h4 itemprop="headline"><a href="{{ route('home.menu.show', $menu->slug) }}" title="" itemprop="url">{{ $menu->name }}</a></h4>
                                                                     <ul class="post-meta">
                                                                         <li><i class="fa fa-check-circle-o"></i> {{ $menu->restaurant->address }}</li>
                                                                         <li><i class="flaticon-transport"></i> 30min</li>
@@ -69,7 +69,7 @@
                                                                 </div>
                                                                 <div class="view-menu-liks">
                                                                     <span class="red-bg brd-rd4 post-likes"><i class="fa fa-money"></i> Ksh {{ $menu->price }}</span>
-                                                                    <a class="brd-rd3" href="#" title="" itemprop="url">View Menu</a>
+                                                                    <a class="brd-rd3" href="{{ route('home.menu.show', $menu->slug) }}" title="" itemprop="url">View Menu</a>
                                                                 </div>
                                                             </div>
                                                         @empty

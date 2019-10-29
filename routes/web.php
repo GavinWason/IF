@@ -26,6 +26,10 @@ Route::get('/cart', 'CartController@index')->name('home.cart.index');
 Route::post('/menu/{slug}', 'CartController@store')->name('home.cart.store');
 Route::delete('/cart/{menu}', 'CartController@destroy')->name('home.cart.remove');
 Route::get('/checkout', 'CartController@checkout')->name('home.checkout.index');
+Route::post('/checkout', 'CartController@complete')->name('home.checkout.store');
+Route::get('/checkout/thankyou/{order}', 'CartController@thankyou')->name('checkout.thankyou');
+Route::get('/donate/thankyou/{donation}', 'CartController@charityThankyou')->name('charity.thankyou');
+
 
 
 Auth::routes(['verify' => true]);

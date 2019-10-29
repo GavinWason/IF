@@ -28,7 +28,8 @@
 
                                         <h4 itemprop="headline">COMPLETE FOOD ORDER</h4>
 
-                                        <form class="restaurant-info-form brd-rd5 pl-5 pr-5">
+                                        <form method="post" action="{{ route('home.checkout.store') }}" class="restaurant-info-form brd-rd5 pl-5 pr-5">
+                                        @csrf
                                             <div class="row mrg20">
                                                 <div class="col-md-6 col-sm-6 col-lg-6">
                                                     <label>Firstname <sup>*</sup></label>
@@ -71,9 +72,10 @@
                                                         <label>Charities <sup>*</sup></label>
                                                         <div class="select-wrp">
                                                             <select name="charity">
-                                                                <option value="none" selected></option>
-                                                                <option value="">India</option>
-                                                                <option>USA</option>
+                                                                <option value="0" selected></option>
+                                                                @foreach($charities as $charity)
+                                                                    <option value="{{ $charity->id }}">{{ $charity->name }}</option>
+                                                                @endforeach
                                                             </select>
                                                         </div>
                                                     </div>
@@ -89,6 +91,7 @@
                                                         <a href="{{ route('home.cart.index') }}" class="brd-rd3 red-bg" itemprop="url"><span class="fa fa-arrow-left"></span> BACK TO BASKET</a>
                                                         <button type="submit" class="brd-rd3 red-bg" itemprop="url"
                                                                 onclick="return confirm('Confirm the processing of the order')">COMPLETER ORDER <span class="fa fa-arrow-right"></span></button>
+
                                                     </div>
                                                 </div>
                                             </div>

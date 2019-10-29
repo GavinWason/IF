@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Charity;
 use App\Menu;
 use App\Restaurant;
 use Carbon\Carbon;
@@ -48,11 +49,21 @@ class AccountController extends Controller
     /**
      * @return \Illuminate\Http\Response
      */
-    public function corporateApplication($id)
+    public function restaurantApplication($id)
     {
         $restaurant = Restaurant::findOrFail($id);
         return view('account.application.restaurant')
             ->with('restaurant', $restaurant);
+    }
+
+    /**
+     * @return \Illuminate\Http\Response
+     */
+    public function charityApplication($ref)
+    {
+        $charity = Charity::where('ref_number', $ref)->firstOrFail();
+        return view('account.application.charity')
+            ->with('charity', $charity);
     }
 
 
@@ -61,30 +72,59 @@ class AccountController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function restaurantStore(Request $request)
+    public function application(Request $request)
     {
-        $this->validate($request, [
-            'restaurant_name' => 'required|string|max:255',
-            'restaurant_phone' => 'required',
-            'restaurant_email' => 'required|email',
-            'restaurant_website' => 'required',
-            'restaurant_address' => 'required'
-        ]);
+        if ($request->has('restaurant_application')){
+            $this->validate($request, [
+                'restaurant_name' => 'required|string|max:255',
+                'restaurant_phone' => 'required',
+                'restaurant_email' => 'required|email',
+                'restaurant_website' => 'required',
+                'restaurant_address' => 'required'
+            ]);
 
-        $restaurant = new Restaurant;
+            $restaurant = new Restaurant;
 
-        $restaurant->ref_number = $this->registrationRef();
-        $restaurant->name = $request->restaurant_name;
-        $restaurant->user_id = auth()->user() ? auth()->user()->id : null;
-        $restaurant->address = $request->restaurant_address;
-        $restaurant->phone = $request->restaurant_phone;
-        $restaurant->website = $request->restaurant_website;
-        $restaurant->email = $request->restaurant_email;
+            $restaurant->ref_number = $this->registrationRef();
+            $restaurant->name = $request->restaurant_name;
+            $restaurant->user_id = auth()->user() ? auth()->user()->id : null;
+            $restaurant->address = $request->restaurant_address;
+            $restaurant->phone = $request->restaurant_phone;
+            $restaurant->website = $request->restaurant_website;
+            $restaurant->email = $request->restaurant_email;
 
-        $restaurant->save();
+            $restaurant->save();
 
-        return redirect()->route('account.corporate.index')
-            ->with('success', 'Your restaurant application has been submitted successfully!');
+            return redirect()->route('account.corporate.index')
+                ->with('success', 'Your restaurant application has been submitted successfully!');
+        }
+
+        if ($request->has('charity_application')){
+            $this->validate($request, [
+                'charity_name' => 'required|string|max:255',
+                'charity_phone' => 'required',
+                'charity_email' => 'required|email',
+                'charity_website' => 'required|string',
+                'charity_address' => 'required',
+                'charity_details' => 'required|string'
+            ]);
+
+            $charity = new Charity;
+
+            $charity->ref_number = $this->registrationRef();
+            $charity->name = $request->charity_name;
+            $charity->user_id = auth()->user() ? auth()->user()->id : null;
+            $charity->address = $request->charity_address;
+            $charity->phone = $request->charity_phone;
+            $charity->website = $request->charity_website;
+            $charity->email = $request->charity_email;
+            $charity->details = $request->charity_details;
+
+            $charity->save();
+
+            return redirect()->route('account.corporate.index')
+                ->with('success', 'Your charity application has been submitted successfully!');
+        }
     }
 
 
@@ -113,6 +153,32 @@ class AccountController extends Controller
         $restaurant->email = $request->restaurant_email;
 
         $restaurant->save();
+
+        return back()->with('success', 'Application Updated successfully');
+
+    }
+
+    public function charityUpdate(Request $request, $ref)
+    {
+        $charity = Charity::where('ref_number', $ref)->firstOrFail();
+
+        $this->validate($request, [
+            'charity_name' => 'required|string|max:255',
+            'charity_phone' => 'required',
+            'charity_email' => 'required|email',
+            'charity_website' => 'required|string',
+            'charity_address' => 'required',
+            'charity_details' => 'required|string'
+        ]);
+
+        $charity->name = $request->charity_name;
+        $charity->address = $request->charity_address;
+        $charity->phone = $request->charity_phone;
+        $charity->website = $request->charity_website;
+        $charity->email = $request->charity_email;
+        $charity->details = $request->charity_details;
+
+        $charity->save();
 
         return back()->with('success', 'Application Updated successfully');
 

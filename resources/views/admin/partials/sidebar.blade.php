@@ -81,12 +81,12 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="#">
-                                <i class="metismenu-icon"> </i>All Restaurants
+                            <a href="{{ route('admin.charity.index') }}">
+                                <i class="metismenu-icon"> </i>All Charities
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{ route('admin.charity.application.index') }}">
                                 <i class="metismenu-icon"> </i>Applications
                             </a>
                         </li>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'My Application - Charity')
+@section('title', 'My Application - Restaurant')
 @section('content')
     @include('partials.header')
     @include('partials.header-resp')
@@ -28,70 +28,90 @@
 
                                     <div class="col-md-8 col-sm-12 col-lg-8">
                                         <div class="tab-content">
-                                            <div class="tab-pane fade in active" id="dashboard">
+                                            <div class="tab-pane fade in active" id="application-restaurant">
                                                 <div class="dashboard-wrapper brd-rd5">
-                                                    <div class="welcome-note yellow-bg brd-rd5">
-                                                        <h4 itemprop="headline">WELCOME TO YOUR ACCOUNT DASHBOARD</h4>
-                                                        <p itemprop="description">From your account dashbaord you can manage your profile details, view your orders,
-                                                            and further if you operate a restaurant on the platform; manage activities related to the restaurant.
-                                                            Would it come that you would like to have your restaurant or charity organization listed on the site, register it
-                                                            through the application form below.</p>
-                                                        <img src="{{ asset('images/resource/welcome-note-img.png') }}" alt="welcome-note-img.png" itemprop="image">
-                                                        <a class="remove-noti" href="#" title="" itemprop="url"><img src="{{ asset('images/close-icon.png') }}" alt="close-icon.png" itemprop="image"></a>
-                                                    </div>
 
                                                     <div class="dashboard-title">
-                                                        <h4 itemprop="headline">QUICK VIEW</h4>
-                                                        <span>Define <a class="red-clr" href="#" title="" itemprop="url">Search criteria</a> to search for specific</span>
+                                                        <h4 itemprop="headline">MY APPLICATION - RESTAURANT #{{ $charity->ref_number }}</h4>
                                                     </div>
 
-                                                    <div class="restaurants-list">
-                                                        <div class="featured-restaurant-box style3 brd-rd5 wow fadeInUp" data-wow-delay="0.2s">
-                                                            <div class="featured-restaurant-thumb"><a href="#" title="" itemprop="url"><img src="{{ asset('images/resource/restaurant-logo1-1.png') }}" alt="restaurant-logo1-1.png" itemprop="image"></a></div>
-                                                            <div class="featured-restaurant-info">
-                                                                <span class="red-clr">5th Avenue New York 68</span>
-                                                                <h4 itemprop="headline"><a href="#" title="" itemprop="url">Domino's Pizza</a></h4>
-                                                                <ul class="post-meta">
-                                                                    <li><i class="fa fa-check-circle-o"></i> Min order $50</li>
-                                                                    <li><i class="flaticon-transport"></i> 30min</li>
-                                                                </ul>
+                                                    @include('partials.message')
+
+                                                    <div class="toggle-wrapper text-center bottom-padd80">
+                                                        <div id="toggle" class="toggle">
+                                                            <div class="toggle-item">
+                                                                <h4><i class="fa fa-angle-right brd-rd50"></i> Preview Application Details</h4>
+                                                                <div class="content">
+                                                                    <div class="featured-restaurant-box style2 brd-rd12 wow fadeIn" data-wow-delay="0.2s">
+                                                                        <div class="featured-restaurant-thumb">
+                                                                            <a href="#" title="" itemprop="url"><img src="{{ asset('images/resource/most-popular-img1-2.png') }}" alt="most-popular-img1-2.png" itemprop="image"></a>
+                                                                        </div>
+
+                                                                        <div class="featured-restaurant-info">
+                                                                            <h4 itemprop="headline">{{ $charity->name }}</h4>
+                                                                            <span class="red-clr"><u>Address</u>: {{ $charity->address }}</span>
+                                                                            <ul class="post-meta">
+                                                                                <li><i class="fa fa-envelope"></i> {{ $charity->email }}</li>
+                                                                                <li><i class="fa fa-phone"></i> {{ $charity->phone }}</li>
+                                                                                <li><i class="fa fa-globe"></i> <a href="http://{{ $charity->website }}" target="_blank">{{ $charity->website }}</a></li>
+                                                                                <li><i class="fa fa-list"></i> {{ $charity->details }}</li>
+                                                                                <hr>
+                                                                                <li>
+                                                                                    <span class="btn btn-warning"> <i class="fa fa-spinner"></i> &nbsp; {{ $charity->status }}</span>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            <div class="view-menu-liks">
-                                                                <span class="red-bg brd-rd4 post-likes"><i class="fa fa-heart-o"></i> 12</span>
-                                                                <a class="brd-rd3" href="#" title="" itemprop="url">View Menu</a>
+                                                            <div class="toggle-item">
+                                                                <h4><i class="fa fa-angle-right brd-rd50"></i> Edit Application</h4>
+                                                                <div class="content">
+                                                                    <form method="post" action="{{ route('account.corporate.charity.update', $charity->ref_number) }}" class="restaurant-info-form brd-rd5 p-0 pt-5">
+                                                                        @csrf
+                                                                        <div class="row">
+                                                                            <div class="col-md-6 col-sm-12 col-lg-6">
+                                                                                <label>Restaurant name <sup>*</sup></label>
+                                                                                <input name="charity_name" class="brd-rd3" value="{{ $charity->name }}" type="text" required>
+                                                                            </div>
+                                                                            <div class="col-md-6 col-sm-12 col-lg-6">
+                                                                                <label>Contact phone <sup>*</sup></label>
+                                                                                <input name="charity_phone" class="brd-rd3" type="text" value="{{ $charity->phone }}" required>
+                                                                            </div>
+                                                                            <div class="col-md-6 col-sm-12 col-lg-6">
+                                                                                <label>Contact Email <sup>*</sup></label>
+                                                                                <input name="charity_email" class="brd-rd3" type="email" value="{{ $charity->email }}">
+                                                                            </div>
+                                                                            <div class="col-md-6 col-sm-12 col-lg-6">
+                                                                                <label>Website <sup>*</sup></label>
+                                                                                <input name="charity_website" class="brd-rd3" type="text" value="{{ $charity->website }}">
+                                                                            </div>
+                                                                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                                                                <label>Address <sup>*</sup></label>
+                                                                                <input name="charity_address" class="brd-rd3" type="text" value="{{ $charity->address }}">
+                                                                            </div>
+                                                                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                                                                <label>Details <sup>*</sup></label>
+                                                                                <textarea name="charity_details" class="brd-rd3" required>{{ $charity->details }}</textarea>
+                                                                            </div>
+                                                                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                                                                <div class="step-buttons text-left mt-0">
+                                                                                    <button class="brd-rd3 red-bg" type="submit">Update Application</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="featured-restaurant-box style3 brd-rd5 wow fadeInUp" data-wow-delay="0.3s">
-                                                            <div class="featured-restaurant-thumb"><a href="#" title="" itemprop="url"><img src="{{ asset('images/resource/restaurant-logo1-2.png') }}" alt="restaurant-logo1-2.png" itemprop="image"></a></div>
-                                                            <div class="featured-restaurant-info">
-                                                                <span class="red-clr">5th Avenue New York 68</span>
-                                                                <h4 itemprop="headline"><a href="#" title="" itemprop="url">Pizza Hut</a></h4>
-                                                                <ul class="post-meta">
-                                                                    <li><i class="fa fa-check-circle-o"></i> Min order $40</li>
-                                                                    <li><i class="flaticon-transport"></i> 30min</li>
-                                                                </ul>
+                                                            <div class="toggle-item">
+                                                                <h4><i class="fa fa-angle-right brd-rd50"></i> Delete Application</h4>
+                                                                <div class="content">
+                                                                    <p>Would you like to delete the application? Click Below to delete</p>
+                                                                </div>
                                                             </div>
-                                                            <div class="view-menu-liks">
-                                                                <span class="red-bg brd-rd4 post-likes"><i class="fa fa-heart-o"></i> 20</span>
-                                                                <a class="brd-rd3" href="#" title="" itemprop="url">View Menu</a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="featured-restaurant-box style3 brd-rd5 wow fadeInUp" data-wow-delay="0.4s">
-                                                            <div class="featured-restaurant-thumb"><a href="#" title="" itemprop="url"><img src="{{ asset('images/resource/restaurant-logo1-1.png') }}" alt="restaurant-logo1-1.png" itemprop="image"></a></div>
-                                                            <div class="featured-restaurant-info">
-                                                                <span class="red-clr">5th Avenue New York 68</span>
-                                                                <h4 itemprop="headline"><a href="#" title="" itemprop="url">Burger King</a></h4>
-                                                                <ul class="post-meta">
-                                                                    <li><i class="fa fa-check-circle-o"></i> Min order $100</li>
-                                                                    <li><i class="flaticon-transport"></i> 30min</li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="view-menu-liks">
-                                                                <span class="red-bg brd-rd4 post-likes"><i class="fa fa-heart-o"></i> 15</span>
-                                                                <a class="brd-rd3" href="#" title="" itemprop="url">View Menu</a>
-                                                            </div>
-                                                        </div>
+                                                        </div><!-- Accordions -->
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>

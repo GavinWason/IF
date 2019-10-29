@@ -31,7 +31,7 @@
                         <div class="col-md-12">
                             <div class="main-card mb-3 card">
                                 <div class="card-header">
-                                    Restaurant Applications
+                                    Restaurant
                                     <div class="btn-actions-pane-right">
                                         <div role="group" class="btn-group-sm btn-group">
                                             <button class="active btn btn-focus">{{ $count }} Registered Restaurants</button>
@@ -40,7 +40,7 @@
                                 </div>
 
                                 <div class="table-responsive">
-                                    <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                                    <table class="align-middle mb-4 table table-borderless table-striped table-hover">
                                         <thead>
                                         <tr>
                                             <th class="text-center">#</th>

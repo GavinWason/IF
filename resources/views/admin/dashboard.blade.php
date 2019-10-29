@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="widget-content-right">
                                     <div class="widget-numbers text-white">
-                                        <span>4</span>
+                                        <span>{{ $countCharities }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -116,7 +116,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @forelse($restaurantApplications as $restApplication)
+                                    @foreach($restaurantApplications as $restApplication)
                                     <tr>
                                         <td class="text-center text-muted">#{{ $restApplication->ref_number }}</td>
                                         <td>
@@ -151,12 +151,11 @@
                                             </a>
                                         </td>
                                     </tr>
-                                    @empty
+                                    @endforeach
 
-                                    @endforelse
-
+                                    @foreach($charityApplications as $charityAppl)
                                     <tr>
-                                        <td class="text-center text-muted">#347</td>
+                                        <td class="text-center text-muted">#{{ $charityAppl->ref_number }}</td>
                                         <td>
                                             <div class="widget-content p-0">
                                                 <div class="widget-content-wrapper">
@@ -167,25 +166,26 @@
                                                     </div>
                                                     <div class="widget-content-left flex2">
                                                         <div class="widget-heading">
-                                                            Ruben Tillman
+                                                            {{ $charityAppl->name }}
                                                         </div>
                                                         <div class="widget-subheading opacity-7">
-                                                            Etiam sit amet orci eget
+                                                            {{ $charityAppl->address }}
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="text-center">Berlin</td>
+                                        <td>{{ $charityAppl->website }} <br/> {{ $charityAppl->email }}</td>
                                         <td class="text-center">
                                             <div class="badge badge-secondary">&nbsp;&nbsp;&nbsp; Charity &nbsp;&nbsp;&nbsp;</div>
                                         </td>
                                         <td class="text-center">
-                                            <button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm">
+                                            <a href="{{ route('admin.charity.application.show', $charityAppl->ref_number) }}" type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm">
                                                 Details
-                                            </button>
+                                            </a>
                                         </td>
                                     </tr>
+                                    @endforeach
 
                                     </tbody>
                                 </table>
@@ -207,7 +207,7 @@
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="#" class="nav-link">
+                                                <a href="{{ route('admin.charity.application.index') }}" class="nav-link">
                                                     <span>Charities</span>
                                                 </a>
                                             </li>

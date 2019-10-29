@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Charity;
 use App\Http\Controllers\Controller;
 use App\Restaurant;
 use App\User;
@@ -24,15 +25,18 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $applRestaurant = Restaurant::where('status', 'pending')->get();
+        $applRestaurant = Restaurant::where('status', 'pending')->take(3)->get();
         $userCount = User::count();
         $restCount = Restaurant::count();
-//        $applCharity = Charity::where('status', 'pending')->get();
+        $charCount = Charity::count();
+        $applCharity = Charity::where('status', 'pending')->take(3)->get();
         return view('admin.dashboard')
             ->with([
                 'restaurantApplications' => $applRestaurant,
+                'charityApplications' => $applCharity,
                 'countUsers' => $userCount,
                 'countRestaurants' => $restCount,
+                'countCharities' => $charCount,
             ]);
     }
 
@@ -50,9 +54,30 @@ class DashboardController extends Controller
             ]);
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function charities()
+    {
+        $charities = Charity::orderBy('updated_at', 'desc')->get();
+        $count = Charity::count();
+        return view('admin.charity.index')
+            ->with([
+                'charities' => $charities,
+                'count' => $count,
+            ]);
+    }
+
     public function restaurant($ref)
     {
+        $restaurant = Restaurant::where('ref_number', $ref)->firstOrFail();
+        return '<h3>'.$restaurant->name.'</h3>';
+    }
 
+    public function charity($ref)
+    {
+        $charity = Charity::where('ref_number', $ref)->firstOrFail();
+        return '<h3>'.$charity->name.'</h3>';
     }
 
     /**
@@ -72,6 +97,22 @@ class DashboardController extends Controller
     }
 
     /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function applicationCharities()
+    {
+        $applications = Charity::where('status', 'pending')
+            ->orderBy('created_at', 'desc')
+            ->get();
+        $count = Charity::where('status', 'pending')->count();
+        return view('admin.applications.charities')
+            ->with([
+                'applications' => $applications,
+                'count' => $count,
+            ]);
+    }
+
+    /**
      * @param $ref
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -81,6 +122,22 @@ class DashboardController extends Controller
         $roles = Role::all();
 
         return view('admin.applications.restaurant')
+            ->with([
+                'application' => $application,
+                'roles' => $roles,
+            ]);
+    }
+
+    /**
+     * @param $ref
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function applicationCharity($ref)
+    {
+        $application = Charity::where('ref_number', $ref)->firstOrFail();
+        $roles = Role::all();
+
+        return view('admin.applications.charity')
             ->with([
                 'application' => $application,
                 'roles' => $roles,
@@ -110,5 +167,30 @@ class DashboardController extends Controller
 
         return redirect()->back()
             ->with('success', 'Restaurant application updated successfully');
+    }
+
+    public function applCharUpdate(Request $request, $ref)
+    {
+        $this->validate($request, [
+            'role' => 'required',
+            'status_update' => 'required',
+            'user_update' => 'required',
+            'user_id' => 'required',
+        ]);
+
+        $application = Charity::where('ref_number', $ref)->firstOrFail();
+        $user = User::findOrFail($request->user_id);
+        $role = Role::findOrFail($request->role);
+
+        $user->assignRole($role);
+
+        $application->status = $request->status_update;
+        $application->save();
+
+        $user->user_type = $request->user_update;
+        $user->save();
+
+        return redirect()->back()
+            ->with('success', 'Charity application updated successfully');
     }
 }

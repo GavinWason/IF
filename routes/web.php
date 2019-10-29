@@ -46,11 +46,12 @@ Route::prefix('account')
         Route::post('/profile', 'AccountController@profileUpdate')->name('account.profile.edit');
 
         Route::get('/corporate', 'AccountController@corporate')->name('account.corporate.index');
-        Route::post('/corporate', 'AccountController@restaurantStore')->name('account.corporate.restaurant.store');
-//        Route::post('/corporate', 'AccountController@charityStore')->name('account.corporate.charity.store');
+        Route::post('/corporate', 'AccountController@application')->name('account.corporate.application.store');
 
-        Route::get('/corporate/application/{id}', 'AccountController@corporateApplication')->name('account.corporate.application');
-        Route::post('/corporate/application/{id}', 'AccountController@restaurantUpdate')->name('account.corporate.restaurant.update');
+        Route::get('/corporate/application/restaurant/{id}', 'AccountController@restaurantApplication')->name('account.corporate.restaurant.application');
+        Route::get('/corporate/application/charity/{ref}', 'AccountController@charityApplication')->name('account.corporate.charity.application');
+        Route::post('/corporate/application/restaurant/{id}', 'AccountController@restaurantUpdate')->name('account.corporate.restaurant.update');
+        Route::post('/corporate/application/charity/{ref}', 'AccountController@charityUpdate')->name('account.corporate.charity.update');
 
         Route::get('/address', 'AccountController@address')->name('account.address.index');
         Route::post('/address', 'AccountController@addressUpdate')->name('account.address.edit');
@@ -67,6 +68,18 @@ Route::prefix('account')
                 Route::get('/menus/create', 'MenuController@create')->name('account.restaurant.menu.create');
                 Route::post('/menus/create', 'MenuController@store')->name('account.restaurant.menu.store');
                 Route::get('/menu/{slug}', 'MenuController@show')->name('account.restaurant.menu.show');
+            });
+
+        //charity management
+        Route::namespace('Charity')
+            ->prefix('charity')
+            ->group(function (){
+
+                Route::get('/', 'DashboardController@details')->name('account.charity.details.index');
+
+                //menus
+                Route::get('/donations', 'DashboardController@donations')->name('account.charity.donation.index');
+                Route::get('/donation/{ref}', 'DashboardController@donation')->name('account.charity.donation.show');
             });
     });
 
@@ -106,13 +119,17 @@ Route::namespace('Admin')
             Route::get('/restaurant/{ref}', 'DashboardController@restaurant')->name('admin.restaurant.show');
 
             //charities
-
+            Route::get('/charities', 'DashboardController@charities')->name('admin.charity.index');
+            Route::get('/charity/{ref}', 'DashboardController@charity')->name('admin.charity.show');
 
             //applications
             Route::prefix('application')->group(function (){
                 Route::get('/restaurants/', 'DashboardController@applicationRestaurants')->name('admin.restaurant.application.index');
                 Route::get('/restaurant/{ref}', 'DashboardController@applicationRestaurant')->name('admin.restaurant.application.show');
                 Route::post('/restaurant/{ref}', 'DashboardController@applRestUpdate')->name('admin.restaurant.application.update');
+                Route::get('/charities/', 'DashboardController@applicationCharities')->name('admin.charity.application.index');
+                Route::get('/charity/{ref}', 'DashboardController@applicationCharity')->name('admin.charity.application.show');
+                Route::post('/charity/{ref}', 'DashboardController@applCharUpdate')->name('admin.charity.application.update');
             });
 
             //roles & permission

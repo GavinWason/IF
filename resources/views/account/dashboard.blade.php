@@ -30,7 +30,7 @@
                                         @endrole
 
                                         @role('Charity')
-                                            Charity Dashboard
+                                            @include('account.charity.dashboard')
                                         @endrole
                                     @else
                                     <div class="col-md-8 col-sm-12 col-lg-8">
@@ -47,11 +47,11 @@
                                                         <a class="remove-noti" href="#" title="" itemprop="url"><img src="{{ asset('images/close-icon.png') }}" alt="close-icon.png" itemprop="image"></a>
                                                     </div>
 
-                                                    <div class="dashboard-title">
+                                                    <div class="dashboard-title pl-0">
                                                         <h4 itemprop="headline">Top Menus</h4>
                                                     </div>
 
-                                                    <div class="restaurants-list">
+                                                    <div class="restaurants-list pl-0 pr-0">
                                                         @forelse($menus as $menu)
                                                             <div class="featured-restaurant-box style3 brd-rd5 wow fadeInUp" data-wow-delay="0.2s">
                                                                 <div class="featured-restaurant-thumb">

@@ -30,21 +30,18 @@
                                         <div class="tab-content">
                                             <div class="tab-pane fade in active" id="corporate">
                                                 <div class="dashboard-wrapper brd-rd5">
-                                                    <div class="welcome-note yellow-bg brd-rd5">
-                                                        <h4 itemprop="headline">CORPORATE ACCOUNT</h4>
-                                                        <p itemprop="description">
-                                                            Do you have a restaurant or charity organization that you would like listed on the site, register it
-                                                            through the application form below. Switch to the corporate account and gain access to more features
-                                                            of the application</p>
-                                                        <img src="{{ asset('images/resource/welcome-note-img.png') }}" alt="welcome-note-img.png" itemprop="image">
-                                                        <a class="remove-noti" href="#" title="" itemprop="url"><img src="{{ asset('images/close-icon.png') }}" alt="close-icon.png" itemprop="image"></a>
-                                                    </div>
+                                                    {{--<div class="welcome-note yellow-bg brd-rd5">--}}
+                                                        {{--<h4 itemprop="headline">CORPORATE ACCOUNT</h4>--}}
+                                                        {{--<p itemprop="description">--}}
+                                                            {{--Do you have a restaurant or charity organization that you would like listed on the site, register it--}}
+                                                            {{--through the application form below. Switch to the corporate account and gain access to more features--}}
+                                                            {{--of the application</p>--}}
+                                                        {{--<img src="{{ asset('images/resource/welcome-note-img.png') }}" alt="welcome-note-img.png" itemprop="image">--}}
+                                                        {{--<a class="remove-noti" href="#" title="" itemprop="url"><img src="{{ asset('images/close-icon.png') }}" alt="close-icon.png" itemprop="image"></a>--}}
+                                                    {{--</div>--}}
 
-                                                    @if (session('success'))
-                                                        <div class="alert alert-success text-center mt-5" role="alert">
-                                                            {{session('success')}}
-                                                        </div>
-                                                    @else
+                                                    @include('partials.message')
+                                                    @if (!session('success'))
                                                     <div class="dashboard-title">
                                                         <h4 itemprop="headline">APPLICATION FORM</h4>
                                                         <span>Fill in the required details and submit your application. Upon successful
@@ -60,7 +57,7 @@
                                                         </ul>
                                                         <div class="tab-content">
                                                             <div class="tab-pane fade in active" id="tab1-1">
-                                                                <form method="post" action="{{ route('account.corporate.restaurant.store') }}" class="restaurant-info-form brd-rd5">
+                                                                <form method="post" action="{{ route('account.corporate.application.store') }}" class="restaurant-info-form brd-rd5 p-0 pt-5">
                                                                     @csrf
                                                                     <div class="row">
                                                                         <div class="col-md-6 col-sm-12 col-lg-6">
@@ -84,55 +81,104 @@
                                                                             <textarea name="restaurant_address" class="brd-rd3" required></textarea>
                                                                         </div>
                                                                         <div class="col-md-12 col-sm-12 col-lg-12">
-                                                                            <div class="step-buttons">
-                                                                                <button class="brd-rd3 red-bg" type="submit">Submit Application</button>
+                                                                            <div class="step-buttons text-left mt-2">
+                                                                                <button name="restaurant_application" class="brd-rd3 red-bg" type="submit">Submit Application</button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </form>
                                                             </div>
-                                                            <div class="tab-pane fade" id="tab1-2">
-                                                                <div class="restaurant-gallery">
-                                                                    <h4 class="title3" itemprop="headline"><span class="sudo-bottom sudo-bg-red">Form</span> here</h4>
-                                                                    <div class="remove-ext">
-                                                                        <div class="row">
 
+                                                            <div class="tab-pane fade" id="tab1-2">
+                                                                <form method="post" action="{{ route('account.corporate.application.store') }}" class="restaurant-info-form brd-rd5 p-0 pt-5">
+                                                                    @csrf
+                                                                    <div class="row">
+                                                                        <div class="col-md-6 col-sm-12 col-lg-6">
+                                                                            <label>Charity name <sup>*</sup></label>
+                                                                            <input name="charity_name" class="brd-rd3" type="text" required>
+                                                                        </div>
+                                                                        <div class="col-md-6 col-sm-12 col-lg-6">
+                                                                            <label>Contact phone <sup>*</sup></label>
+                                                                            <input name="charity_phone" class="brd-rd3" type="text" required>
+                                                                        </div>
+                                                                        <div class="col-md-6 col-sm-12 col-lg-6">
+                                                                            <label>Contact Email</label>
+                                                                            <input name="charity_email" class="brd-rd3" type="email">
+                                                                        </div>
+                                                                        <div class="col-md-6 col-sm-12 col-lg-6">
+                                                                            <label>Website</label>
+                                                                            <input name="charity_website" class="brd-rd3" type="text">
+                                                                        </div>
+                                                                        <div class="col-md-12 col-sm-12 col-lg-12">
+                                                                            <label>Address</label>
+                                                                            <input name="charity_address" class="brd-rd3" type="text">
+                                                                        </div>
+                                                                        <div class="col-md-12 col-sm-12 col-lg-12">
+                                                                            <label>Details</label>
+                                                                            <textarea name="charity_details" class="brd-rd3" placeholder="E.g. A girls home that seeks to promote..."></textarea>
+                                                                        </div>
+                                                                        <div class="col-md-12 col-sm-12 col-lg-12">
+                                                                            <div class="step-buttons text-left mt-2">
+                                                                                <button name="charity_application" class="brd-rd3 red-bg" type="submit">Submit Application</button>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
+                                                                </form>
                                                             </div>
                                                             <div class="tab-pane fade" id="tab1-3">
                                                                 <div class="restaurant-gallery">
                                                                     <h4 class="title3" itemprop="headline"><span class="sudo-bottom sudo-bg-red">Rest</span>aurant</h4>
                                                                     <div class="row">
                                                                         <div class="restaurants-list">
-                                                                            @forelse(Auth::user()->restaurants as $restaurant)
+                                                                            @if(Auth::user()->restaurants)
                                                                             <div class="featured-restaurant-box style3 brd-rd5">
                                                                                 <div class="featured-restaurant-thumb"><a href="#" title="" itemprop="url"><img src="{{ asset('images/resource/restaurant-logo1-2.png') }}" alt="restaurant-logo1-2.png" itemprop="image"></a></div>
                                                                                 <div class="featured-restaurant-info">
-                                                                                    <span class="red-clr">{{ $restaurant->address }}</span>
-                                                                                    <h4 itemprop="headline"><a href="{{ route('account.corporate.application', $restaurant->id) }}" title="" itemprop="url">{{ $restaurant->name }}</a></h4>
+                                                                                    <span class="red-clr">{{ Auth::user()->restaurants->address }}</span>
+                                                                                    <h4 itemprop="headline"><a href="{{ route('account.corporate.restaurant.application', $restaurant->id) }}" title="" itemprop="url">{{ Auth::user()->restaurants->name }}</a></h4>
                                                                                     <ul class="post-meta">
-                                                                                        <li><i class="fa fa-envelope"></i> {{ $restaurant->email }}</li>
-                                                                                        <li><i class="fa fa-phone"></i> {{ $restaurant->phone }}</li>
+                                                                                        <li><i class="fa fa-envelope"></i> {{ Auth::user()->restaurants->email }}</li>
+                                                                                        <li><i class="fa fa-phone"></i> {{ Auth::user()->restaurants->phone }}</li>
                                                                                     </ul>
                                                                                 </div>
                                                                                 <div class="view-menu-liks">
                                                                                     <div class="order-info">
-                                                                                        <span class="processing brd-rd3" style="padding: 10px 25px; text-transform: uppercase;">{{ $restaurant->status }}</span>
+                                                                                        <span class="processing brd-rd3" style="padding: 10px 25px; text-transform: uppercase;">{{ Auth::user()->restaurants->status }}</span>
                                                                                     </div>
-                                                                                    <a class="brd-rd3" href="{{ route('account.corporate.application', $restaurant->id) }}" title="" itemprop="url">Quick View</a>
+                                                                                    <a class="brd-rd3" href="{{ route('account.corporate.restaurant.application', Auth::user()->restaurants->id) }}" title="" itemprop="url">Quick View</a>
                                                                                 </div>
                                                                             </div>
-                                                                            @empty
+                                                                            @else
                                                                                 You do not have any application for registration of a restaurant
-                                                                            @endforelse
+                                                                            @endif
                                                                         </div>
                                                                     </div>
 
                                                                     <h4 class="title3" itemprop="headline"><span class="sudo-bottom sudo-bg-red">Cha</span>rity</h4>
                                                                     <div class="row">
-                                                                        <p class="mt-0 pl-4">No Charity registration application was found</p>
+                                                                        <div class="restaurants-list">
+                                                                            @if(Auth::user()->charity)
+                                                                                <div class="featured-restaurant-box style3 brd-rd5">
+                                                                                    <div class="featured-restaurant-thumb"><a href="#" title="" itemprop="url"><img src="{{ asset('images/resource/charity-logo-1.jpg') }}" alt="restaurant-logo1-2.png" itemprop="image"></a></div>
+                                                                                    <div class="featured-restaurant-info">
+                                                                                        <span class="red-clr">{{ Auth::user()->charity->address }}</span>
+                                                                                        <h4 itemprop="headline"><a href="{{ route('account.corporate.charity.application', Auth::user()->charity->ref_number) }}" title="" itemprop="url">{{ Auth::user()->charity->name }}</a></h4>
+                                                                                        <ul class="post-meta">
+                                                                                            <li> {{ Auth::user()->charity->email }}</li>
+                                                                                            <li><i class="fa fa-phone"></i> {{ Auth::user()->charity->phone }}</li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                    <div class="view-menu-liks">
+                                                                                        <div class="order-info">
+                                                                                            <span class="processing brd-rd3" style="padding: 10px 25px; text-transform: uppercase;">{{ Auth::user()->charity->status }}</span>
+                                                                                        </div>
+                                                                                        <a class="brd-rd3" href="{{ route('account.corporate.charity.application', Auth::user()->charity->ref_number) }}" title="" itemprop="url">Quick View</a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            @else
+                                                                                No Charity registration application was found under your account
+                                                                            @endif
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>

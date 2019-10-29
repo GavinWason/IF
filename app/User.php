@@ -41,11 +41,21 @@ class User extends Authenticatable implements MustVerifyEmail
 
 
     /**
-     * Relation with user model
+     * Relation with restaurant model
+     * name should have been in singular as it's one to one relationship
+     * but it would imply changing the entire site where relation is used
      */
     public function restaurants()
     {
         return $this->hasOne('App\Restaurant');
+    }
+
+    /**
+     * Relation with charity model
+     */
+    public function charity()
+    {
+        return $this->hasOne('App\Charity');
     }
 }
 

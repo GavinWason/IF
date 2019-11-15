@@ -35,7 +35,7 @@ class Order extends Model
      */
     public function menus()
     {
-        return $this->belongsToMany('App\Menu')->withPivot('quantity');
+        return $this->belongsToMany('App\Menu', 'order_menu')->withPivot('quantity');
     }
 
     /**

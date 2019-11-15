@@ -24,7 +24,7 @@ class AccountController extends Controller
      */
     public function index()
     {
-        $menus = Menu::paginate(5);
+        $menus = Menu::paginate(3);
         return view('account.dashboard')
             ->with('menus', $menus);
     }

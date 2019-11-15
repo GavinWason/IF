@@ -34,12 +34,28 @@ class DashboardController extends Controller
      */
     public function donations()
     {
-        $donations = Donation::all();
+        $donationAll = Donation::all();
+        $donations = Donation::where('charity_id', auth()->user()->charity->id)->paginate(5);
         $count = Donation::count();
 
         return view('account.charity.donations')->with([
+            'donationAll' => $donationAll,
             'donations' => $donations,
             'count' => $count,
         ]);
+    }
+
+    /**
+     * display a donation with details
+     *
+     * @param $ref
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function donation($ref)
+    {
+        $donation = Donation::where('ref_number', $ref)->firstOrFail();
+
+        return view('account.charity.donation')
+            ->with('donation', $donation);
     }
 }

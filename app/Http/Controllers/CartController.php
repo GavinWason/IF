@@ -156,7 +156,6 @@ class CartController extends Controller
 
         // decrypt url parameter
         $donationId = Crypt::decrypt($donation);
-//        dd($donationId);
         $donation = Donation::findOrFail($donationId);
 
         return view('account.charity.thankyou')->with('donation', $donation);

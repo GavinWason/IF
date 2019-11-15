@@ -27,6 +27,7 @@
                         <li><a href="{{ route('account.restaurant.details.index') }}"><i class="fa fa-list"></i> DETAILS</a></li>
                         <li><a href="{{ route('account.restaurant.menu.index') }}"><i class="fa fa-heart"></i> MENUS</a></li>
                         <li><a href="#"><i class="fa fa-shopping-basket"></i>  ORDERS</a></li>
+                        <li><a href="#"><i class="fa fa-bar-chart"></i> STATISTICS</a></li>
                         <li><a href="#"><i class="fa fa-comments"></i> REVIEWS</a></li>
                     </ul>
                 @endrole
@@ -36,7 +37,7 @@
                         <li><a href="{{ route('account.index') }}"><i class="fa fa-dashboard"></i> DASHBOARD</a></li>
                         <li><a href="{{ route('account.charity.details.index') }}"><i class="fa fa-cog"></i> DETAILS</a></li>
                         <li><a href="{{ route('account.charity.donation.index') }}"><i class="fa fa-shopping-basket"></i> DONATIONS</a></li>
-                        <li><a href="#"><i class="fa fa-comments"></i> REVIEWS</a></li>
+                        <li><a href="#"><i class="fa fa-bar-chart"></i> STATISTICS</a></li>
                     </ul>
                 @endrole
             @else

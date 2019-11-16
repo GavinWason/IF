@@ -1,26 +1,26 @@
 <?php
 
-namespace App\Http\Controllers\Restaurant;
+namespace App\Http\Controllers\Client;
 
+use App\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class OrderController extends Controller
+class DashboardController extends Controller
 {
     /**
-     * Display a listing of orders.
-     *
+     * Display a listing of the client's orders.
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function orders()
     {
-//        $restaurant = Restaurant::where('user_id', auth()->user()->id)->firstOrFail();
-//        dd($restaurant->menus->toArray());
-//        $orders = Order::whereExists(function ($query){
-//           $query->whereIn('menu_id', auth()->user()->restaurants->menus->toArray())
-//               ->from('order_menu');
-//        })->get();
-//        dd($orders);
+        $orders = Order::where('user_id', auth()->user()->id)->paginate(5);
+        $count = Order::where('user_id', auth()->user()->id)->count();
+
+        return view('account.client.orders')->with([
+            'count' => $count,
+            'orders' => $orders,
+        ]);
     }
 
     /**
@@ -47,10 +47,10 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $ref
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($ref)
     {
         //
     }

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    {{ Auth::user()->restaurants->name }} | Menus Dashboard
+@endsection
+
 @section('content')
     @include('partials.header')
     @include('partials.header-resp')
@@ -8,7 +12,8 @@
         <div class="container">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('home.index') }}" title="Welcome Page" itemprop="url">Home</a></li>
-                <li class="breadcrumb-item active">Dashboard</li>
+                <li class="breadcrumb-item">Restaurant</li>
+                <li class="breadcrumb-item active">Menus</li>
             </ol>
         </div>
     </div>

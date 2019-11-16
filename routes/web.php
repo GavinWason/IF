@@ -46,19 +46,25 @@ Route::prefix('account')
     ->group(function(){
 
         Route::get('/', 'AccountController@index')->name('account.index');
-        Route::get('/profile', 'AccountController@profile')->name('account.profile.index');
-        Route::post('/profile', 'AccountController@profileUpdate')->name('account.profile.edit');
 
-        Route::get('/corporate', 'AccountController@corporate')->name('account.corporate.index');
-        Route::post('/corporate', 'AccountController@application')->name('account.corporate.application.store');
+//        Route::get('/profile', 'AccountController@profile')->name('account.profile.index');
+//        Route::post('/profile', 'AccountController@profileUpdate')->name('account.profile.edit');
+//        Route::get('/address', 'AccountController@address')->name('account.address.index');
+//        Route::post('/address', 'AccountController@addressUpdate')->name('account.address.edit');
 
-        Route::get('/corporate/application/restaurant/{id}', 'AccountController@restaurantApplication')->name('account.corporate.restaurant.application');
-        Route::get('/corporate/application/charity/{ref}', 'AccountController@charityApplication')->name('account.corporate.charity.application');
-        Route::post('/corporate/application/restaurant/{id}', 'AccountController@restaurantUpdate')->name('account.corporate.restaurant.update');
-        Route::post('/corporate/application/charity/{ref}', 'AccountController@charityUpdate')->name('account.corporate.charity.update');
+        // corporate application (restaurant | charity)
+        Route::prefix('corporate')
+            ->group(function () {
 
-        Route::get('/address', 'AccountController@address')->name('account.address.index');
-        Route::post('/address', 'AccountController@addressUpdate')->name('account.address.edit');
+                Route::get('/', 'AccountController@corporate')->name('account.corporate.index');
+                Route::post('/', 'AccountController@application')->name('account.corporate.application.store');
+
+                Route::get('/application/restaurant/{id}', 'AccountController@restaurantApplication')->name('account.corporate.restaurant.application');
+                Route::get('/application/charity/{ref}', 'AccountController@charityApplication')->name('account.corporate.charity.application');
+                Route::post('/application/restaurant/{id}', 'AccountController@restaurantUpdate')->name('account.corporate.restaurant.update');
+                Route::post('/application/charity/{ref}', 'AccountController@charityUpdate')->name('account.corporate.charity.update');
+
+            });
 
         //restaurant management
         Route::namespace('Restaurant')
@@ -72,6 +78,9 @@ Route::prefix('account')
                 Route::get('/menus/create', 'MenuController@create')->name('account.restaurant.menu.create');
                 Route::post('/menus/create', 'MenuController@store')->name('account.restaurant.menu.store');
                 Route::get('/menu/{slug}', 'MenuController@show')->name('account.restaurant.menu.show');
+
+                //orders
+                Route::get('/orders', 'OrderController@index')->name('account.restaurant.order.index');
             });
 
         //charity management
@@ -85,6 +94,16 @@ Route::prefix('account')
                 Route::get('/donations', 'DashboardController@donations')->name('account.charity.donation.index');
                 Route::get('/donation/{ref}', 'DashboardController@donation')->name('account.charity.donation.show');
             });
+
+        //client management
+        Route::namespace('Client')
+            ->prefix('dashboard')
+            ->group(function (){
+
+                //orders
+                Route::get('/orders', 'DashboardController@orders')->name('account.client.order.index');
+                Route::get('/order/{ref}', 'DashboardController@show')->name('account.client.order.show');
+            });
     });
 
 
@@ -94,7 +113,6 @@ Route::prefix('account')
 Route::namespace('Admin')
     ->prefix('admin')
     ->group(function(){
-
 
         // authentication
         Route::namespace('Auth')->group(function () {

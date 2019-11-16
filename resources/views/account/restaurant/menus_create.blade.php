@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    {{ Auth::user()->restaurants->name }} | Create Menu - Cheap Food
+@endsection
+
 @section('content')
     @include('partials.header')
     @include('partials.header-resp')

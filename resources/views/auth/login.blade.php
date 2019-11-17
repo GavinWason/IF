@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Login - Authentication | CheapFood')
+
 @section('content')
     <section>
         <div class="block">

@@ -102,7 +102,7 @@ Route::prefix('account')
 
                 //orders
                 Route::get('/orders', 'DashboardController@orders')->name('account.client.order.index');
-                Route::get('/order/{ref}', 'DashboardController@show')->name('account.client.order.show');
+                Route::get('/order/{ref}', 'DashboardController@order')->name('account.client.order.show');
             });
     });
 

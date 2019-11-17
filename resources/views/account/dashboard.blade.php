@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Account Dashboard | CheapFood')
+@section('title', 'Dashboard - Account | CheapFood')
 
 @section('content')
     @include('partials.header')

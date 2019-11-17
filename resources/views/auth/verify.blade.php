@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Login - Verify Email | CheapFood')
+
 @section('content')
 
     <section>

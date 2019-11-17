@@ -35,8 +35,9 @@
                                                 <div class="tabs-wrp brd-rd5">
                                                     <h4 itemprop="headline">MY MENUS</h4>
                                                     <div class="select-wrap-inner">
-                                                        <a class="btn btn-primary pull-right" href="{{ route('account.restaurant.menu.create') }}" title="" itemprop="url">New Menu</a>
+                                                        <a class="btn brd-rd3 red-bg pull-right" href="{{ route('account.restaurant.menu.create') }}" title="" itemprop="url">New Menu <i class="fa fa-plus-circle"></i></a>
                                                     </div>
+
 
                                                     <div class="order-list">
                                                         @forelse($menus as $menu)
@@ -59,6 +60,7 @@
                                                             </div>
                                                         @endforelse
                                                     </div>
+                                                    {{ $menus->links() }}
                                                 </div>
                                             </div>
                                         </div>

@@ -28,7 +28,7 @@
                                 <span class="red-clr">{{ $menu->restaurant->name }}</span>
                                 <h4 itemprop="headline"><a href="{{ route('home.menu.show', $menu->slug) }}" title="" itemprop="url">{{ $menu->name }}</a></h4>
                                 <ul class="post-meta">
-                                    <li><i class="fa fa-check-circle-o"></i> {{ $menu->restaurant->address }}</li>
+                                    <li><i class="fa fa-map-marker"></i> {{ $menu->restaurant->address }}</li>
                                     <li><i class="flaticon-transport"></i> 30min</li>
                                 </ul>
                             </div>

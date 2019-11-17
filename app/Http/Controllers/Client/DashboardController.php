@@ -14,45 +14,30 @@ class DashboardController extends Controller
      */
     public function orders()
     {
-        $orders = Order::where('user_id', auth()->user()->id)->paginate(5);
-        $count = Order::where('user_id', auth()->user()->id)->count();
+        $query = Order::where('user_id', auth()->user()->id);
+        $orders = $query->paginate(5);
+        $count = $query->count();
+        $total = $query->sum('total');
 
         return view('account.client.orders')->with([
             'count' => $count,
             'orders' => $orders,
+            'total' => $total
         ]);
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
+     * Display a detailed order
      *
      * @param  int  $ref
      * @return \Illuminate\Http\Response
      */
-    public function show($ref)
+    public function order($ref)
     {
-        //
+        $order = Order::where('ref_number', $ref)->firstOrFail();
+
+        return view('account.client.order')
+            ->with('order', $order);
     }
 
     /**

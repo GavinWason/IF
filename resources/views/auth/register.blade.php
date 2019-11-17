@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Register Account | CheapFood')
+
 @section('content')
     <section>
         <div class="block">

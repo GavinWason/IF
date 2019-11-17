@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'My Application - Restaurant')
+@section('title', 'Application - Restaurant | CheapFood')
+
 @section('content')
     @include('partials.header')
     @include('partials.header-resp')

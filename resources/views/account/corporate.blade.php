@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'My Account - Corporate Application')
+@section('title', 'Account - Corporate Application')
+
 @section('content')
     @include('partials.header')
     @include('partials.header-resp')

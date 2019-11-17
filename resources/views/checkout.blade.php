@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Checkout | CheapFood')
+
 @section('content')
     @include('partials.header')
     @include('partials.header-resp')
@@ -8,7 +10,8 @@
         <div class="container">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('home.index') }}" title="Welcome Page" itemprop="url">Home</a></li>
-                <li class="breadcrumb-item active">Menus</li>
+                <li class="breadcrumb-item">Cart</li>
+                <li class="breadcrumb-item active">Checkout</li>
             </ol>
         </div>
     </div>

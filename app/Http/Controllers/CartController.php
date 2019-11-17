@@ -53,6 +53,10 @@ class CartController extends Controller
             ->with('success', 'Menu added to the basket successfully!');
     }
 
+    /**
+     * Complete order.
+     * @return \Illuminate\Http\Response
+     */
     public function checkout()
     {
         $charities = Charity::all();
@@ -128,6 +132,7 @@ class CartController extends Controller
 
     /**
      * Display a thank you page after successful checkout.
+     * @param order
      * @return \Illuminate\Http\Response
      */
     public function thankyou($order)
@@ -145,6 +150,7 @@ class CartController extends Controller
 
     /**
      * Display a thank you page after successful donation.
+     * @param donation
      * @return \Illuminate\Http\Response
      */
     public function charityThankyou($donation)
@@ -157,8 +163,12 @@ class CartController extends Controller
         // decrypt url parameter
         $donationId = Crypt::decrypt($donation);
         $donation = Donation::findOrFail($donationId);
+        $order = $donation->order;
 
-        return view('account.charity.thankyou')->with('donation', $donation);
+        return view('account.charity.thankyou')->with([
+            'order' => $order,
+            'donation' => $donation
+        ]);
     }
 
     /**

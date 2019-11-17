@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Menu - {{ $menu->name }} | CheapFood
+@endsection
+
 @section('content')
     @include('partials.header')
     @include('partials.header-resp')
@@ -8,7 +12,8 @@
         <div class="container">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('home.index') }}" title="Welcome Page" itemprop="url">Home</a></li>
-                <li class="breadcrumb-item active">Menus</li>
+                <li class="breadcrumb-item">Menu</li>
+                <li class="breadcrumb-item active">{{ $menu->name }}</li>
             </ol>
         </div>
     </div>
@@ -75,7 +80,9 @@
                                                     <input type="hidden" name="id" value="{{ $menu->id }}">
                                                     <input type="hidden" name="name" value="{{ $menu->name }}">
                                                     <input type="hidden" name="price" value="{{ $menu->price }}">
-                                                    <button type="submit" class="btn btn-primary brd-rd3" itemprop="url">Add to Basket</button>
+                                                    <div class="step-buttons text-left mt-0">
+                                                        <button type="submit" class="brd-rd3 red-bg" itemprop="url">Add to Basket <i class="fa fa-arrow-right"></i></button>
+                                                    </div>
                                                 </form>
                                             </div>
                                         </div>

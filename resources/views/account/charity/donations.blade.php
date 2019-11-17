@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Donations - Dashboard | CheapFood')
+
 @section('content')
     @include('partials.header')
     @include('partials.header-resp')

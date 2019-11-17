@@ -37,15 +37,19 @@
                                                     <img class="brd-rd4" src="{{ asset('images/resource/restaurant-logo1-1.png') }}" alt="" itemprop="image">
                                                 </div>
                                                 <div class="featured-restaurant-info">
-                                                    <span class="">Donated by: <label for="" class="red-clr">#</label></span>
-                                                    <h5 itemprop="headline"><i class="fa fa-money"></i> Ksh #</h5>
+                                                    <span class="">#{{ $order->ref_number }}</span>
+                                                    {{--<h5 itemprop="headline"><i class="fa fa-money"></i> Ksh {{ $order->total }}</h5>--}}
                                                     <ul class="post-meta">
-                                                        <li><i class="fa fa-hashtag"></i><strong>#</strong></li>
-                                                        <li><span class="alert alert-info pt-1 pb-1"> # </span></li>
+                                                        <li><span class="alert alert-info pt-1 pb-1"> {{ $order->is_donation === 1 ? 'Donation' : 'Oneself' }} </span></li>
+                                                        @if($order->is_donation === 1)
+                                                            <li><i class="fa fa-map-marker"></i> {{ $order->donation->charity->name }}</li>
+                                                        @else
+                                                            <li><i class="fa fa-map-marker"></i> Delivered to me</li>
+                                                        @endif
                                                     </ul>
                                                 </div>
                                                 <div class="view-menu-liks">
-                                                    {{--<span class="red-bg brd-rd4 post-likes"><i class="fa fa-money"></i> Ksh {{ $menu->price }}</span>--}}
+                                                    <span class="red-bg brd-rd4 post-likes"><i class="fa fa-money"></i> Ksh {{ $order->total }}</span>
                                                     <a class="brd-rd3" href="{{ route('account.client.order.show', $order->ref_number) }}" title="" itemprop="url">View</a>
                                                 </div>
                                             </div>
@@ -55,6 +59,9 @@
                                             </div>
                                         @endforelse
                                         {{ $orders->links() }}
+                                        <ul class="ordr-lst brd-rd5 mt-5"><hr class="mb-0">
+                                            <li class="lst-hed">Combined Total <span>Ksh {{ $total }}</span></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>

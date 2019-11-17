@@ -59,8 +59,8 @@
                                                                 No Menus Found
                                                             </div>
                                                         @endforelse
+                                                        {{ $menus->links() }}
                                                     </div>
-                                                    {{ $menus->links() }}
                                                 </div>
                                             </div>
                                         </div>

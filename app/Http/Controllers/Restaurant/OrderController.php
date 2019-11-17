@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Restaurant;
 
+use App\Order;
+use App\Restaurant;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,13 +16,19 @@ class OrderController extends Controller
      */
     public function index()
     {
-//        $restaurant = Restaurant::where('user_id', auth()->user()->id)->firstOrFail();
-//        dd($restaurant->menus->toArray());
-//        $orders = Order::whereExists(function ($query){
-//           $query->whereIn('menu_id', auth()->user()->restaurants->menus->toArray())
-//               ->from('order_menu');
-//        })->get();
-//        dd($orders);
+        $restaurant = Restaurant::where('user_id', auth()->user()->id)->firstOrFail();
+        $menuIds = array();
+        foreach ($restaurant->menus as $menu){
+            array_push($menuIds, $menu->id);
+        }
+        $orders = Order::whereHas('menus', function ($query) use ($menuIds){
+            $query->whereIn('menu_id', $menuIds);
+        });
+
+        return view('account.restaurant.orders')->with([
+            'orders' => $orders->orderBy('created_at', 'desc')->paginate(5),
+            'count' => $orders->count()
+        ]);
     }
 
     /**

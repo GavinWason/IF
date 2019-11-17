@@ -81,6 +81,7 @@ Route::prefix('account')
 
                 //orders
                 Route::get('/orders', 'OrderController@index')->name('account.restaurant.order.index');
+                Route::get('/order/{ref}', 'OrderController@show')->name('account.restaurant.order.show');
             });
 
         //charity management

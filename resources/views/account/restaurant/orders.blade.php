@@ -46,12 +46,17 @@
                                                             <tbody>
                                                             @forelse($orders as $order)
                                                             <tr>
-                                                                <td><h5 itemprop="headline"><a href="#" title="" itemprop="url">Jet's Kitchen ( #8589 )</a></h5></td>
-                                                                <td>Aug 17,2017</td>
-                                                                <td><span class="brd-rd3 processing">PROCESSING</span> <a class="detail-link brd-rd50" href="#" title="" itemprop="url"><i class="fa fa-chain"></i></a></td>
+                                                                <td><h5 itemprop="headline"><a href="#" title="" itemprop="url">#{{ $order->ref_number }}</a></h5></td>
+                                                                <td style="font-size: 0.9em">{{ Carbon\Carbon::parse($order->created_at)->isoFormat('MMM Do, YYYY') }} <br/>
+                                                                        <i class="fa fa-clock-o"></i> {{ $order->created_at->diffForHumans() }}</td>
+                                                                <td><span class="brd-rd3 processing text-capitalize">{{ $order->status }}</span>
+                                                                    <a class="detail-link brd-rd50" href="{{ route('account.restaurant.order.show', $order->ref_number) }}" title="View Order" itemprop="url"><i class="fa fa-forward"></i></a>
+                                                                </td>
                                                             </tr>
                                                             @empty
-                                                                
+                                                                <tr><td colspan="3">
+                                                                    <div class="alert alert-info" style="font-size: 0.9em">You do not have any incoming orders yet</div>
+                                                                    </td></tr>
                                                             @endforelse
                                                             </tbody>
                                                         </table>

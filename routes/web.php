@@ -82,6 +82,7 @@ Route::prefix('account')
                 //orders
                 Route::get('/orders', 'OrderController@index')->name('account.restaurant.order.index');
                 Route::get('/order/{ref}', 'OrderController@show')->name('account.restaurant.order.show');
+                Route::post('/order/{ref}', 'OrderController@update')->name('account.restaurant.order.update');
             });
 
         //charity management

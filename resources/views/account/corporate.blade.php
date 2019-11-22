@@ -31,15 +31,6 @@
                                         <div class="tab-content">
                                             <div class="tab-pane fade in active" id="corporate">
                                                 <div class="dashboard-wrapper brd-rd5">
-                                                    {{--<div class="welcome-note yellow-bg brd-rd5">--}}
-                                                        {{--<h4 itemprop="headline">CORPORATE ACCOUNT</h4>--}}
-                                                        {{--<p itemprop="description">--}}
-                                                            {{--Do you have a restaurant or charity organization that you would like listed on the site, register it--}}
-                                                            {{--through the application form below. Switch to the corporate account and gain access to more features--}}
-                                                            {{--of the application</p>--}}
-                                                        {{--<img src="{{ asset('images/resource/welcome-note-img.png') }}" alt="welcome-note-img.png" itemprop="image">--}}
-                                                        {{--<a class="remove-noti" href="#" title="" itemprop="url"><img src="{{ asset('images/close-icon.png') }}" alt="close-icon.png" itemprop="image"></a>--}}
-                                                    {{--</div>--}}
 
                                                     @include('partials.message')
                                                     @if (!session('success'))

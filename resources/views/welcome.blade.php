@@ -98,11 +98,7 @@
         </div>
     </section><!-- top resturents -->
 
-<<<<<<< HEAD
-            <div class="content">
-                <div class="title m-b-md">
-                    Welcome to CheapFood
-=======
+
     <section>
         <div class="block blackish low-opacity">
             <div class="fixed-bg" style="background-image: url({{ asset('images/parallax1.jpg') }});"></div>
@@ -237,7 +233,6 @@
                             </div>
                         </div>
                     </div>
->>>>>>> new-template
                 </div>
             </div>
         </div>

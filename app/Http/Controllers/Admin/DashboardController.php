@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Charity;
 use App\Http\Controllers\Controller;
+use App\Order;
 use App\Restaurant;
 use App\User;
 use Illuminate\Http\Request;
@@ -26,17 +27,20 @@ class DashboardController extends Controller
     public function index()
     {
         $applRestaurant = Restaurant::where('status', 'pending')->take(3)->get();
-        $userCount = User::count();
+        $orderCount = Order::count();
         $restCount = Restaurant::count();
         $charCount = Charity::count();
         $applCharity = Charity::where('status', 'pending')->take(3)->get();
+        $donationTotal = Order::where('is_donation', 1)->sum('total');
+
         return view('admin.dashboard')
             ->with([
                 'restaurantApplications' => $applRestaurant,
                 'charityApplications' => $applCharity,
-                'countUsers' => $userCount,
+                'countOrders' => $orderCount,
                 'countRestaurants' => $restCount,
                 'countCharities' => $charCount,
+                'donationTotal' => $donationTotal,
             ]);
     }
 

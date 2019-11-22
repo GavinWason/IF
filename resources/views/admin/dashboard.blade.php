@@ -63,12 +63,12 @@
                         <div class="card mb-3 widget-content bg-grow-early">
                             <div class="widget-content-wrapper text-white">
                                 <div class="widget-content-left">
-                                    <div class="widget-heading">Clients</div>
-                                    <div class="widget-subheading">Total number of users</div>
+                                    <div class="widget-heading">Orders</div>
+                                    <div class="widget-subheading">Total number of orders</div>
                                 </div>
                                 <div class="widget-content-right">
                                     <div class="widget-numbers text-white">
-                                        <span>{{ $countUsers }}</span>
+                                        <span>{{ $countOrders }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -84,10 +84,133 @@
                                 </div>
                                 <div class="widget-content-right">
                                     <div class="widget-numbers text-warning">
-                                        <span>Ksh 28,000.00</span>
+                                        <small>Ksh</small><span> {{ $donationTotal }}</span>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-card mb-3 card">
+                            <div class="card-header">
+                                Resume Information
+                            </div>
+                        </div>
+
+                        <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav mt-0 pt-0">
+                            <li class="nav-item">
+                                <a role="tab" class="nav-link active" id="tab-0" data-toggle="tab" href="#tab-content-0">
+                                    <span>Users Charts</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a role="tab" class="nav-link" id="tab-1" data-toggle="tab" href="#tab-content-1">
+                                    <span>Order Charts</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a role="tab" class="nav-link" id="tab-2" data-toggle="tab" href="#tab-content-2">
+                                    <span>Donation Charts</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Pie Chart</h5>
+                                                <canvas id="chart-area"></canvas>
+                                            </div>
+                                        </div>
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Radar Chart</h5>
+                                                {{--<canvas id="radar-chart"></canvas>--}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Doughnut</h5>
+                                                <canvas id="doughnut-chart"></canvas>
+                                            </div>
+                                        </div>
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Polar Chart</h5>
+                                                {{--<canvas id="polar-chart"></canvas>--}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="tab-pane tabs-animation fade" id="tab-content-1" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Vertical Bars</h5>
+                                                <canvas id="canvas"></canvas>
+                                            </div>
+                                        </div>
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Horizontal Bars</h5>
+                                                <canvas id="chart-horiz-bar"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Line Chart</h5>
+                                                <div style="height: 400px">
+                                                    <canvas id="line-chart"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Stacked Bars</h5>
+                                                <canvas id="stacked-bars-chart"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane tabs-animation fade" id="tab-content-2" role="tabpane2">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Polar Chart</h5>
+                                                <canvas id="polar-chart"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Radar Chart</h5>
+                                                <canvas id="radar-chart"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+
+                            Add bar graph with users over time
                         </div>
                     </div>
                 </div>

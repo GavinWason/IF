@@ -31,69 +31,42 @@ class OrderController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
-     * Store a newly created resource in storage.
+     * Show order details & Update form
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $ref
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function show($ref)
     {
-        //
+        $order = Order::where('ref_number', $ref)->firstOrFail();
+        return view('account.restaurant.order')
+            ->with('order', $order);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
-     * Show the form for editing the specified resource.
+     * Update the status of an order
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $ref
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
      */
-    public function edit($id)
+    public function update(Request $request, $ref)
     {
-        //
-    }
+        $order = Order::where('ref_number', $ref)->firstOrFail();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        $this->validate($request, [
+            'status' => 'required|string|max:255'
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $order->status = $request->status;
+        $order->save();
+
+        return redirect()->back()
+            ->with('success', 'Order Status Updated successfully');
+
     }
 }

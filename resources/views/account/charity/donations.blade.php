@@ -42,7 +42,7 @@
                                                 </div>
                                                 <div class="featured-restaurant-info">
                                                     <span class="">Donated by: <label for="" class="red-clr">{{ $donation->user->firstname.' '.$donation->user->lastname }}</label></span>
-                                                    <h5 itemprop="headline"><i class="fa fa-money"></i> Ksh {{ $donation->order->total }}</h5>
+                                                    <h5 itemprop="headline"><i class="fa fa-money"></i> Ksh {{ $donation->order->total ? $donation->order->total : ''}}</h5>
                                                     <ul class="post-meta">
                                                         <li><i class="fa fa-hashtag"></i><strong>{{ $donation->ref_number }}</strong></li>
                                                         <li><span class="alert alert-info pt-1 pb-1"> {{ $donation->status }} </span></li>

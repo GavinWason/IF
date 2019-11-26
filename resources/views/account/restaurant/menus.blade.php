@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-@section('title')
-    {{ Auth::user()->restaurants->name }} | Menus Dashboard
-@endsection
+@section('title', 'Restaurant Menus - Dashboard')
 
 @section('content')
     @include('partials.header')

@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-@section('title')
-    {{ Auth::user()->restaurants->name }} | Create Menu - Cheap Food
-@endsection
+@section('title', 'Create Menu | Dashboard Cheap Food')
 
 @section('content')
     @include('partials.header')

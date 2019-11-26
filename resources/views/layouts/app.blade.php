@@ -53,6 +53,8 @@
     <!-- Scripts -->
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/chart.js/Chart.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/chart.js/Chart.min.js') }}"></script>
     <script src="{{ asset('js/plugins.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
     @yield('scripts')

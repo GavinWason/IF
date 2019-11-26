@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-@section('title')
-    Order {{ $order->ref_number }} | Dashboard - CheapFood
-@endsection
+@section('title', 'Order Details | Dashboard - CheapFood')
 
 @section('content')
     @include('partials.header')
@@ -58,10 +56,10 @@
                                                 <img class="brd-rd50" src="{{ asset('images/resource/delivery_02.png') }}" alt="" itemprop="image">
                                                 <div class="author-info">
                                                     @if($order->is_donation === 1)
-                                                        <h4 itemprop="headline">To: Charity - {{ $order->donation->charity->name }}</h4>
+                                                        <h4 itemprop="headline">To: Charity - {{ $order->donation->charity->name ? $order->donation->charity->name : '' }}</h4>
                                                         <p itemprop="description">
-                                                            <i class="fa fa-map-marker"></i> {{ $order->donation->charity->address }} <br/>
-                                                            <i class="fa fa-phone"></i> {{ $order->donation->charity->phone }} <br/>
+                                                            <i class="fa fa-map-marker"></i> {{ $order->donation->charity->address ? $order->donation->charity->address : '' }} <br/>
+                                                            <i class="fa fa-phone"></i> {{ $order->donation->charity->phone ? $order->donation->charity->phone : '' }} <br/>
                                                             <i class="fa fa-envelope"></i> {{ $order->donation->charity->email ? $order->donation->charity->email : '' }}</p>
                                                     @else
                                                         <h4 itemprop="headline">To: {{ $order->user->firstname.' '.$order->user->lastname }}</h4>

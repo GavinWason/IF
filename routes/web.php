@@ -42,7 +42,7 @@ Route::post('/verify/2fa', 'Auth\TwoFactorController@verifyToken')->name('2fa.ve
  * Client account dashboard
  **/
 Route::prefix('account')
-    ->middleware(['auth', 'verified'])
+    ->middleware(['auth', 'verified', '2fa'])
     ->group(function(){
 
         Route::get('/', 'AccountController@index')->name('account.index');
@@ -83,6 +83,10 @@ Route::prefix('account')
                 Route::get('/orders', 'OrderController@index')->name('account.restaurant.order.index');
                 Route::get('/order/{ref}', 'OrderController@show')->name('account.restaurant.order.show');
                 Route::post('/order/{ref}', 'OrderController@update')->name('account.restaurant.order.update');
+
+                //stats
+                Route::get('/statistics', 'DashboardController@statistics')->name('account.restaurant.statistic.index');
+                Route::get('/statistics/orderchart', 'DashboardController@orderChart')->name('account.restaurant.statistic.orderChart');
             });
 
         //charity management
@@ -95,6 +99,10 @@ Route::prefix('account')
                 //menus
                 Route::get('/donations', 'DashboardController@donations')->name('account.charity.donation.index');
                 Route::get('/donation/{ref}', 'DashboardController@donation')->name('account.charity.donation.show');
+
+                //stats
+                Route::get('/statistics', 'DashboardController@statistics')->name('account.charity.statistic.index');
+                Route::get('/statistics/donationchart', 'DashboardController@donationChart')->name('account.charity.statistic.donationChart');
             });
 
         //client management
@@ -137,6 +145,9 @@ Route::namespace('Admin')
         // dashboard
         Route::middleware('auth:admin')->group(function () {
             Route::get('/', 'DashboardController@index')->name('admin.dashboard.index');
+            Route::get('/user/chart', 'DashboardController@barChart')->name('admin.dashboard.user.chart');
+            Route::get('/order/chart', 'DashboardController@orderChart')->name('admin.dashboard.order.chart');
+            Route::get('/donation/chart', 'DashboardController@donationChart')->name('admin.dashboard.donation.chart');
 
             //restaurants
             Route::get('/restaurants', 'DashboardController@restaurants')->name('admin.restaurant.index');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Charity;
 use App\Menu;
+use App\Order;
 use App\Restaurant;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class AccountController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth', 'verified']);
+        $this->middleware(['auth', 'verified', '2fa']);
     }
 
     /**
@@ -24,9 +25,28 @@ class AccountController extends Controller
      */
     public function index()
     {
+        $menuCount = $orderCount = $userServed = null;
+        if(auth()->user()->user_type === 'restaurant'){
+            $restaurant = Restaurant::where('user_id', auth()->user()->id)->firstOrFail();
+            $menuIds = array();
+            foreach ($restaurant->menus as $menu){
+                array_push($menuIds, $menu->id);
+            }
+            $menuCount = count($menuIds); // number of menus added by this restaurant
+            $orders = Order::whereHas('menus', function ($query) use ($menuIds){
+                $query->whereIn('menu_id', $menuIds);
+            });
+            $orderCount = $orders->count(); // number of orders received by this restaurant
+            $userServed = $orders->groupBy('user_id')->count(); // number of users who have ordered food from this restaurant
+        }
+
         $menus = Menu::paginate(3);
-        return view('account.dashboard')
-            ->with('menus', $menus);
+        return view('account.dashboard')->with([
+            'menus' => $menus,
+            'menuCount' => $menuCount,
+            'orderCount' => $orderCount,
+            'userServed' => $userServed,
+        ]);
     }
 
     /**

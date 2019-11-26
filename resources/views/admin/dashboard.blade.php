@@ -108,12 +108,7 @@
                             </li>
                             <li class="nav-item">
                                 <a role="tab" class="nav-link" id="tab-1" data-toggle="tab" href="#tab-content-1">
-                                    <span>Order Charts</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a role="tab" class="nav-link" id="tab-2" data-toggle="tab" href="#tab-content-2">
-                                    <span>Donation Charts</span>
+                                    <span>Order & Donations</span>
                                 </a>
                             </li>
                         </ul>
@@ -124,93 +119,53 @@
                                     <div class="col-md-6">
                                         <div class="main-card mb-3 card">
                                             <div class="card-body">
-                                                <h5 class="card-title">Pie Chart</h5>
-                                                <canvas id="chart-area"></canvas>
-                                            </div>
-                                        </div>
-                                        <div class="main-card mb-3 card">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Radar Chart</h5>
-                                                {{--<canvas id="radar-chart"></canvas>--}}
+                                                <h5 class="card-title">Overview of users registration</h5>
+                                                <canvas id="usersChart"></canvas>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="main-card mb-3 card">
                                             <div class="card-body">
-                                                <h5 class="card-title">Doughnut</h5>
-                                                <canvas id="doughnut-chart"></canvas>
-                                            </div>
-                                        </div>
-                                        <div class="main-card mb-3 card">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Polar Chart</h5>
-                                                {{--<canvas id="polar-chart"></canvas>--}}
+                                                <h5 class="card-title">Ratio of Users registration</h5>
+                                                <canvas id="userPie"></canvas>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                             <div class="tab-pane tabs-animation fade" id="tab-content-1" role="tabpanel">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="main-card mb-3 card">
                                             <div class="card-body">
-                                                <h5 class="card-title">Vertical Bars</h5>
-                                                <canvas id="canvas"></canvas>
-                                            </div>
-                                        </div>
-                                        <div class="main-card mb-3 card">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Horizontal Bars</h5>
-                                                <canvas id="chart-horiz-bar"></canvas>
+                                                <h5 class="card-title">Overview of Orders</h5>
+                                                <canvas id="orderBarChart"></canvas>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="main-card mb-3 card">
                                             <div class="card-body">
-                                                <h5 class="card-title">Line Chart</h5>
-                                                <div style="height: 400px">
-                                                    <canvas id="line-chart"></canvas>
+                                                <h5 class="card-title">Overview of Donations</h5>
+                                                <canvas id="donationBarChart"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">COMPARISON ORDERS & DONATIONS</h5>
+                                                <div style="">
+                                                    <canvas id="orderDonationLineChart"></canvas>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="main-card mb-3 card">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Stacked Bars</h5>
-                                                <canvas id="stacked-bars-chart"></canvas>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane tabs-animation fade" id="tab-content-2" role="tabpane2">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="main-card mb-3 card">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Polar Chart</h5>
-                                                <canvas id="polar-chart"></canvas>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="main-card mb-3 card">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Radar Chart</h5>
-                                                <canvas id="radar-chart"></canvas>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card-body">
-
-                            Add bar graph with users over time
                         </div>
                     </div>
                 </div>
@@ -345,8 +300,240 @@
 
             @include('admin.partials.footer')
         </div>
-
-        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+    <script>
+        const userChartUrl = "{{ route('admin.dashboard.user.chart') }}",
+            orderChartUrl = "{{ route('admin.dashboard.order.chart') }}";
+
+        var orderMonths = new Array(),
+            orderCount = new Array(),
+            userMonths = new Array(),
+            userCount = new Array(),
+            donationMonths = new Array(),
+            donationCount = new Array();
+
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+
+        $(document).ready(function() {
+            //user chart | ajax data
+            $.get(userChartUrl, function (response) {
+                response.forEach(function (data) {
+                    userMonths.push(monthNames[data.month]);
+                    userCount.push(data.userCount);
+                });
+
+                var userBarChart = document.getElementById('usersChart').getContext('2d');
+                var userBar = new Chart(userBarChart, {
+                    type: 'bar',
+                    data: {
+                        labels: userMonths,
+                        datasets: [{
+                            label: '# of users',
+                            data: userCount,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+
+                var userPieChart = document.getElementById('userPie');
+                var userPie = new Chart(userPieChart, {
+                    type: 'pie',
+                    data: {
+                        datasets: [{
+                            data: userCount,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                        }],
+                        labels: userMonths,
+                    }
+                });
+            });
+
+
+            //order & donation chart | ajax data
+            $.get(orderChartUrl, function (response) {
+
+                // order bar chart
+                response.orders.forEach(function (order) {
+                    orderMonths.push(monthNames[order.month]);
+                    orderCount.push(order.orderCount);
+                });
+
+                var orderBarChart = document.getElementById('orderBarChart').getContext('2d');
+                var orderBar = new Chart(orderBarChart, {
+                    type: 'bar',
+                    data: {
+                        labels: orderMonths,
+                        datasets: [{
+                            label: '# of orders',
+                            data: orderCount,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+
+                //donation bar chart
+                response.donations.forEach(function (donation) {
+                    donationMonths.push(monthNames[donation.month]);
+                    donationCount.push(donation.donationCount);
+                });
+
+                var donationBarChart = document.getElementById('donationBarChart').getContext('2d');
+                var donationBar = new Chart(donationBarChart, {
+                    type: 'bar',
+                    data: {
+                        labels: donationMonths,
+                        datasets: [{
+                            label: '# of donations',
+                            data: donationCount,
+                            backgroundColor: [
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                            ],
+                            borderColor: [
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+
+                //order|donation line graph
+                var orderDonationChart = document.getElementById('orderDonationLineChart').getContext('2d');
+                var donationBar = new Chart(orderDonationChart, {
+                    type: 'line',
+                    data: {
+                        labels: orderMonths,
+                        datasets: [{
+                            label: '# of donations',
+                            data: orderCount,
+                            backgroundColor: [
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                            ],
+                            borderColor: [
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)',
+                            ],
+                            borderWidth: 1
+                        },{
+                            label: '# of orders',
+                            data: donationCount,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            text: 'Ratio of Orders and Donations'
+                        },
+                        legend: {
+                            display: true,
+                            position: "bottom"
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            });
+
+        });
+    </script>
 @endsection

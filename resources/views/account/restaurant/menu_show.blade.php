@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Restaurant Menu - Dashboard')
+
 @section('content')
     @include('partials.header')
     @include('partials.header-resp')

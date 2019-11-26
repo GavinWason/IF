@@ -27,8 +27,8 @@
                         <li><a href="{{ route('account.restaurant.details.index') }}"><i class="fa fa-list"></i> DETAILS</a></li>
                         <li><a href="{{ route('account.restaurant.menu.index') }}"><i class="fa fa-coffee"></i> MENUS</a></li>
                         <li><a href="{{ route('account.restaurant.order.index') }}"><i class="fa fa-shopping-basket"></i>  ORDERS</a></li>
-                        <li><a href="#"><i class="fa fa-bar-chart"></i> STATISTICS</a></li>
-                        <li><a href="#"><i class="fa fa-comments"></i> REVIEWS</a></li>
+                        <li><a href="{{ route('account.restaurant.statistic.index') }}"><i class="fa fa-bar-chart"></i> STATISTICS</a></li>
+                        {{--<li><a href="#"><i class="fa fa-comments"></i> REVIEWS</a></li>--}}
                     </ul>
                 @endrole
 
@@ -37,7 +37,7 @@
                         <li><a href="{{ route('account.index') }}"><i class="fa fa-dashboard"></i> DASHBOARD</a></li>
                         <li><a href="{{ route('account.charity.details.index') }}"><i class="fa fa-cog"></i> DETAILS</a></li>
                         <li><a href="{{ route('account.charity.donation.index') }}"><i class="fa fa-shopping-basket"></i> DONATIONS</a></li>
-                        <li><a href="#"><i class="fa fa-bar-chart"></i> STATISTICS</a></li>
+                        <li><a href="{{ route('account.charity.statistic.index') }}"><i class="fa fa-bar-chart"></i> STATISTICS</a></li>
                     </ul>
                 @endrole
             @else
@@ -46,8 +46,8 @@
                         <li><a href="{{ route('account.index') }}"><i class="fa fa-dashboard"></i> DASHBOARD</a></li>
                         <li><a href="#"><i class="fa fa-cog"></i> MY PROFILE</a></li>
                         <li><a href="{{ route('account.client.order.index') }}"><i class="fa fa-shopping-basket"></i> MY ORDERS</a></li>
-                        <li><a href="#"><i class="fa fa-comments"></i> MY REVIEWS</a></li>
-                        <li><a href="#"><i class="fa fa-heart"></i> SHORTLISTS</a></li>
+                        {{--<li><a href="#"><i class="fa fa-comments"></i> MY REVIEWS</a></li>--}}
+                        {{--<li><a href="#"><i class="fa fa-heart"></i> SHORTLISTS</a></li>--}}
                         <li><a href="{{ route('account.corporate.index') }}"><i class="fa fa-building"></i> CORPORATE</a></li>
                     </ul>
             @endhasanyrole

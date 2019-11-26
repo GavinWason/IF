@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Charity;
 use App\Donation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -57,5 +58,24 @@ class DashboardController extends Controller
 
         return view('account.charity.donation')
             ->with('donation', $donation);
+    }
+
+    public function statistics()
+    {
+        return view('account.charity.statistics');
+    }
+
+    public function donationChart()
+    {
+        $donations = Donation::where('charity_id', auth()->user()->charity->id);
+
+        $result = $donations->groupBy('month')
+            ->orderBy('month', 'ASC')
+            ->get(array(
+                DB::raw('MONTH(created_at) as month'),
+                DB::raw('COUNT(*) as "donationCount"')
+            ));
+
+        return response()->json($result);
     }
 }

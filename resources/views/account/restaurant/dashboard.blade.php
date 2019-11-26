@@ -17,7 +17,7 @@
                         <div class="fact-box">
                             <i class="brd-rd50" style="border: solid 1px #b8c2cc"><img src="{{ asset('images/resource/fact-icon6.png') }}" alt="fact-icon1" itemprop="image"></i>
                             <div class="fact-inner text-center">
-                                <strong><span class="counter text-primary">17</span></strong>
+                                <strong><span class="counter text-primary">{{ $menuCount ? $menuCount : 0 }}</span></strong>
                                 <h5>Food Menu</h5>
                             </div>
                         </div><!-- Fact Box -->
@@ -26,7 +26,7 @@
                         <div class="fact-box">
                             <i class="brd-rd50" style="border: solid 1px #b8c2cc"><img src="{{ asset('images/resource/fact-icon5.png') }}" alt="fact-icon2" itemprop="image"></i>
                             <div class="fact-inner text-center">
-                                <strong><span class="counter text-primary">8</span></strong>
+                                <strong><span class="counter text-primary">{{ $orderCount ? $orderCount : 0 }}</span></strong>
                                 <h5>Order Received</h5>
                             </div>
                         </div><!-- Fact Box -->
@@ -35,7 +35,7 @@
                         <div class="fact-box text-center">
                             <i class="brd-rd50" style="border: solid 1px #b8c2cc"><img src="{{ asset('images/resource/fact-icon2.png') }}" alt="fact-icon3" itemprop="image"></i>
                             <div class="fact-inner text-center">
-                                <strong><span class="counter text-primary">6</span></strong>
+                                <strong><span class="counter text-primary">{{ $userServed ? $userServed : 0 }}</span></strong>
                                 <h5>People Served</h5>
                             </div>
                         </div><!-- Fact Box -->

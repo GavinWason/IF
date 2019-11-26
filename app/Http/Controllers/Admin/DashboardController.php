@@ -3,12 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Charity;
+use App\Donation;
 use App\Http\Controllers\Controller;
 use App\Order;
 use App\Restaurant;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
+use function Symfony\Component\VarDumper\Tests\Fixtures\bar;
 
 class DashboardController extends Controller
 {
@@ -33,6 +37,16 @@ class DashboardController extends Controller
         $applCharity = Charity::where('status', 'pending')->take(3)->get();
         $donationTotal = Order::where('is_donation', 1)->sum('total');
 
+        //user Chart data
+        $users = User::groupBy('month')
+            ->orderBy('month', 'DESC')
+            ->get(array(
+                DB::raw('MONTH(created_at) as month'),
+                DB::raw('COUNT(*) as "userCount"')
+            ));
+
+//        $chart = $this.barChart();
+
         return view('admin.dashboard')
             ->with([
                 'restaurantApplications' => $applRestaurant,
@@ -42,6 +56,35 @@ class DashboardController extends Controller
                 'countCharities' => $charCount,
                 'donationTotal' => $donationTotal,
             ]);
+    }
+
+    public function barChart()
+    {
+        $users = User::groupBy('month')
+            ->orderBy('month', 'DESC')
+            ->get(array(
+                DB::raw('MONTH(created_at) as month'),
+                DB::raw('COUNT(*) as "userCount"')
+            ));
+        return response()->json($users);
+    }
+
+    public function orderChart()
+    {
+        $orders = Order::groupBy('month')
+            ->orderBy('month', 'DESC')
+            ->get(array(
+                DB::raw('MONTH(created_at) as month'),
+                DB::raw('COUNT(*) as "orderCount"')
+            ));
+
+        $donations = Donation::groupBy('month')
+            ->orderBy('month', 'DESC')
+            ->get(array(
+                DB::raw('MONTH(created_at) as month'),
+                DB::raw('COUNT(*) as "donationCount"')
+            ));
+        return response()->json(['orders' => $orders, 'donations' => $donations]);
     }
 
     /**
